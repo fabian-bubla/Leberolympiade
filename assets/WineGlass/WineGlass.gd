@@ -7,6 +7,7 @@ var input_accomplished = []
 var current_score = 0
 var max_score = Stats.max_score #add that to some singleton
 var inverted_flag = false
+var combo_meter = 0 setget set_combo_meter
 
 var wine_fill_value: float = 9.0
 export (int) var Control_Scheme = 0
@@ -57,19 +58,20 @@ func _ready():
 
 func _process(_delta):
 	#LEFT CHECK
-	#IS the Input pressed for the left side?
-	for i in int_button_dict.values():
-		#which of the buttons of the left side where pressed iterate
-		if Input.is_action_just_pressed(i):
-			var next_press = int_button_dict[Input_left[0]]
-			#is the next necessary press among them then:
-			if Input.is_action_just_pressed(next_press):
-				input_accomplished.append(Input_left.pop_front())
-				increment()
-#				GameEvents.emit_signal("point_scored", self)
-			else:#if wrong button! or elif but button still in the button_dict
-				you_pressed_wrong_button()
-				pass
+	if !input_blocked:
+		#IS the Input pressed for the left side?
+		for i in int_button_dict.values():
+			#which of the buttons of the left side where pressed iterate
+			if Input.is_action_just_pressed(i):
+				var next_press = int_button_dict[Input_left[0]]
+				#is the next necessary press among them then:
+				if Input.is_action_just_pressed(next_press):
+					input_accomplished.append(Input_left.pop_front())
+					increment()
+	#				GameEvents.emit_signal("point_scored", self)
+				else:#if wrong button! or elif but button still in the button_dict
+					you_pressed_wrong_button()
+					pass
 	
 	#interpolate amount of wine in Glass each frame
 	$Tween.interpolate_property($Wine, 'margin_bottom', $Wine.margin_bottom,wine_fill_value,0.1,Tween.TRANS_LINEAR,Tween.EASE_IN)
@@ -129,6 +131,11 @@ func invert():
 func you_pressed_wrong_button():
 	$BlockTimer.start()
 	input_blocked = true
+	$xSprite.visible = true
 	yield($BlockTimer,"timeout")
 	input_blocked = false
+	$xSprite.visible = false
 	pass
+
+func set_combo_meter():
+	

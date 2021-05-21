@@ -1,14 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
 [ext_resource path="res://assets/TempArrows/TempArrow.png" type="Texture" id=3]
 [ext_resource path="res://assets/WineGlass/WineRed_01.png" type="Texture" id=4]
 [ext_resource path="res://assets/WineGlass/WineGlass.gd" type="Script" id=5]
+[ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=6]
 
 [node name="WineGlass" type="Node2D"]
 script = ExtResource( 5 )
+controller_id = null
 Control_Scheme = 1
+
+[node name="xSprite" type="Sprite" parent="."]
+visible = false
+position = Vector2( 1.7818, -60.5811 )
+texture = ExtResource( 6 )
 
 [node name="Glass" type="Sprite" parent="."]
 texture = ExtResource( 2 )
@@ -56,3 +63,11 @@ texture = ExtResource( 3 )
 [node name="WinTimer" type="Timer" parent="."]
 
 [node name="BlockTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ComboMeter" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
