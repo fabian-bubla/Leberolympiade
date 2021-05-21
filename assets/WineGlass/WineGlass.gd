@@ -13,6 +13,7 @@ var wine_fill_value: float = 9.0
 export (int) var Control_Scheme = 0
 export var combo_attack_threshhold = 5
 export var player_color_key = 0
+export var drink_alpha = 'cc'
 var input_blocked = false
 
 var player_color_dict = {
@@ -140,7 +141,15 @@ func you_pressed_wrong_button():
 	$BlockTimer.start()
 	input_blocked = true
 	$xSprite.visible = true
+	
+	var arrow_list = $Arrows.get_children()
+	for i in arrow_list:
+		i.visible = false
+	
 	yield($BlockTimer,"timeout")
+	
+	arrow_list[Input_left[0]].visible = true
+	
 	set_combo_meter(true)
 	input_blocked = false
 	$xSprite.visible = false
@@ -155,8 +164,10 @@ func set_combo_meter(reset=false):
 		$ComboMeter.text = str(combo_meter)
 
 func modulate_all_assets(color_code):
+	#xSprite
+	$xSprite.set_modulate(Color(color_code))
 	#Wine
-	$Wine/Wine.set_modulate(Color(color_code))
+	$Wine/Wine.set_modulate(Color(drink_alpha + color_code))
 	#all Arrows
 	for i in $Arrows.get_children():
 		i.set_modulate(Color(color_code))
