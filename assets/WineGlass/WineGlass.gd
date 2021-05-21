@@ -13,7 +13,7 @@ var combo_meter = 0 setget set_combo_meter
 var biggest_combo_counter = 0
 var attack_counter = 0
 var mistakes_counter = 0
-
+var is_winner = false
 
 
 
@@ -161,8 +161,8 @@ func win():
 	'atk counter' + str (attack_counter),
 	'mistake counter' + str(mistakes_counter))
 	#
-	
-	
+	is_winner = true
+	Stats.create_win_dict()
 	#WIN PIZAZZ HERE
 	
 	#END
@@ -237,11 +237,11 @@ func set_lime_sprite():
 			show_frame = 4
 			
 	if combo_attack_threshhold == 10:
-		if combo_meter == 4:
+		if combo_meter >= 4:
 			show_frame = 1
-		if combo_meter == 6:
+		if combo_meter >= 6:
 			show_frame = 2
-		if combo_meter == 8:
+		if combo_meter >= 8:
 			show_frame = 3
 		if combo_meter >= 10:
 			show_frame = 4
@@ -291,6 +291,4 @@ func punish_player():
 	wine_fill_value = 9 + 62 /max_score * abs(current_score) 
 	pass
 
-func create_win_screen_dict ():
-	for member in get_tree().get_nodes_in_group("WineGlasses"):
-		pass
+
