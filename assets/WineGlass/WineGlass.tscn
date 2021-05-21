@@ -15,12 +15,11 @@ Control_Scheme = 1
 
 [node name="xSprite" type="AnimatedSprite" parent="."]
 visible = false
-position = Vector2( 1.7818, -60.5811 )
+position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
-
-[node name="Glass" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+frame = 2
+playing = true
 
 [node name="Wine" type="Control" parent="."]
 margin_left = 26.0686
@@ -42,6 +41,9 @@ scale = Vector2( 1, -1 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 48, 52 )
 
+[node name="Glass" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="WinTimer" type="Timer" parent="."]
@@ -58,6 +60,7 @@ __meta__ = {
 }
 
 [node name="HandSprite" type="Sprite" parent="."]
+position = Vector2( 0, 32 )
 texture = ExtResource( 7 )
 hframes = 4
 vframes = 4
