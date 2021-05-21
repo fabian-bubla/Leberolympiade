@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shout14.wav-4eba2d384588247d0b213bd951a7c638.sample"
+
+[deps]
+
+source_file="res://assets/SFX/Shout14.wav"
+dest_files=[ "res://.import/Shout14.wav-4eba2d384588247d0b213bd951a7c638.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
