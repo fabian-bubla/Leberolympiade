@@ -10,10 +10,11 @@ var inverted_flag = false
 var combo_meter = 0 setget set_combo_meter
 
 #STATS COUNTERS
+var is_winner = false
 var biggest_combo_counter = 0
 var attack_counter = 0
 var mistakes_counter = 0
-var is_winner = false
+#var is_winner = false
 
 
 
@@ -160,15 +161,16 @@ func win():
 	print('biggest. combo: ' + str(biggest_combo_counter),
 	'atk counter' + str (attack_counter),
 	'mistake counter' + str(mistakes_counter))
-	#
-	is_winner = true
-	Stats.create_win_dict()
-	#WIN PIZAZZ HERE
 	
-	#END
+#	$WinDisplay.win_display(biggest_combo_counter,attack_counter,mistakes_counter)
+	is_winner = true
+	
+	for member in get_tree().get_nodes_in_group("WinDisplays"):
+		member.win_display()
+
 	$WinTimer.start()
 	yield($WinTimer,"timeout")
-	get_tree().change_scene('res://assets/StartScreen/StartScreen.tscn')
+#	get_tree().change_scene('res://assets/StartScreen/StartScreen.tscn')
 	pass
 
 func generate_arrow_presses():
@@ -197,6 +199,7 @@ func invert():
 
 func you_pressed_wrong_button():
 	mistakes_counter +=1
+	AudioManager.play_random_shout()
 	
 	$BlockTimer.start()
 	input_blocked = true
@@ -281,6 +284,7 @@ func queue_block_prompt():
 
 func punish_player():
 	mistakes_counter +=1
+	AudioManager.play_random_shout()
 	var punishment_value = 1
 	set_combo_meter(true)
 	if !inverted_flag:

@@ -12,8 +12,9 @@ func _ready():
 func create_win_dict ():
 	for member in get_tree().get_nodes_in_group("WineGlasses"):
 		var temp_list = []
+		temp_list.append(member.get_node('HandSprite').frame)
 		temp_list.append(member.is_winner)
 		temp_list.append(member.biggest_combo_counter)
 		temp_list.append(member.attack_counter)
 		temp_list.append(member.mistakes_counter)
-		
+		win_list.append(temp_list)

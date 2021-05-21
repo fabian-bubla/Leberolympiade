@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/WineGlass/GlassTransparent01.png" type="Texture" id=10]
 [ext_resource path="res://assets/WineGlass/StrawAway.tres" type="Animation" id=11]
 [ext_resource path="res://assets/WineGlass/StrawIn.tres" type="Animation" id=12]
-[ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=13]
+[ext_resource path="res://assets/WineGlass/WinDisplay.gd" type="Script" id=13]
 [ext_resource path="res://assets/WineGlass/Limette01.png" type="Texture" id=14]
 
 [node name="WineGlass" type="Node2D" groups=[
@@ -92,7 +92,30 @@ script = ExtResource( 8 )
 anims/StrawAway = ExtResource( 11 )
 anims/StrawIn = ExtResource( 12 )
 
-[node name="BlockPrompt" type="Sprite" parent="."]
-visible = false
-position = Vector2( -76, -87 )
-texture = ExtResource( 13 )
+[node name="WinDisplay" type="Control" parent="." groups=[
+"WinDisplays",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LongestCombo" type="Label" parent="WinDisplay"]
+margin_left = -18.0109
+margin_top = -92.1733
+margin_right = 21.9891
+margin_bottom = -78.1733
+
+[node name="Attacks" type="Label" parent="WinDisplay"]
+margin_left = -20.1298
+margin_top = -56.1515
+margin_right = 19.8702
+margin_bottom = -42.1515
+
+[node name="Mistakes" type="Label" parent="WinDisplay"]
+margin_left = -20.1298
+margin_top = -28.6055
+margin_right = 19.8702
+margin_bottom = -14.6055
