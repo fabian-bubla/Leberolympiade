@@ -11,8 +11,16 @@ var combo_meter = 0 setget set_combo_meter
 
 var wine_fill_value: float = 9.0
 export (int) var Control_Scheme = 0
-
+export var combo_attack_threshhold = 5
+export var player_color_key = 0
 var input_blocked = false
+
+var player_color_dict = {
+	0: "6e0022",
+	1: "f6f392",
+	2: 'e9469d',
+	3: 'ffc30f',
+}
 
 onready var int_button_dict = Controls[Control_Scheme]
 var Controls = [
@@ -47,6 +55,7 @@ var Controls = [
 func _ready():
 	randomize()
 	generate_arrow_presses()
+	modulate_all_assets(player_color_dict[player_color_key])
 #	for i in Stats.max_score:
 #		Input_left.append(randi() % 4)
 		
@@ -79,7 +88,7 @@ func _process(_delta):
 
 
 func increment():
-	
+	set_combo_meter()
 	if !inverted_flag:
 		current_score = current_score + 1
 	else:
@@ -133,9 +142,26 @@ func you_pressed_wrong_button():
 	input_blocked = true
 	$xSprite.visible = true
 	yield($BlockTimer,"timeout")
+	set_combo_meter(true)
 	input_blocked = false
 	$xSprite.visible = false
 	pass
 
-func set_combo_meter():
-	
+func set_combo_meter(reset=false):
+	if reset == true:
+		combo_meter = 0
+		$ComboMeter.text = str(0)
+	else:
+		combo_meter += 1
+		$ComboMeter.text = str(combo_meter)
+
+func modulate_all_assets(color_code):
+	#Wine
+	$Wine/Wine.set_modulate(Color(color_code))
+	#all Arrows
+	for i in $Arrows.get_children():
+		i.set_modulate(Color(color_code))
+	#ComboMeter
+	$ComboMeter.set_modulate(Color(color_code))
+	print(color_code)
+	pass

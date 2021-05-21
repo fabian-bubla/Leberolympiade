@@ -2,14 +2,13 @@
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
-[ext_resource path="res://assets/TempArrows/TempArrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/_Arrows/Arrows.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/WineGlass/WineRed_01.png" type="Texture" id=4]
 [ext_resource path="res://assets/WineGlass/WineGlass.gd" type="Script" id=5]
 [ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=6]
 
 [node name="WineGlass" type="Node2D"]
 script = ExtResource( 5 )
-controller_id = null
 Control_Scheme = 1
 
 [node name="xSprite" type="Sprite" parent="."]
@@ -42,24 +41,6 @@ region_rect = Rect2( 0, 0, 48, 52 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Arrows" type="Node2D" parent="."]
-position = Vector2( 1.75685, -60.7006 )
-
-[node name="TempArrowLeft" type="Sprite" parent="Arrows"]
-texture = ExtResource( 3 )
-
-[node name="TempArrowRight" type="Sprite" parent="Arrows"]
-rotation = -3.14159
-texture = ExtResource( 3 )
-
-[node name="TempArrowUp" type="Sprite" parent="Arrows"]
-rotation = 1.5708
-texture = ExtResource( 3 )
-
-[node name="TempArrowDown" type="Sprite" parent="Arrows"]
-rotation = 4.71239
-texture = ExtResource( 3 )
-
 [node name="WinTimer" type="Timer" parent="."]
 
 [node name="BlockTimer" type="Timer" parent="."]
@@ -68,6 +49,25 @@ one_shot = true
 [node name="ComboMeter" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Arrows" parent="." instance=ExtResource( 3 )]
+position = Vector2( -0.21291, -156.992 )
+rotation = 3.14159
+
+[node name="ArrowUp" parent="Arrows" index="0"]
+visible = true
+
+[node name="ArrowRight" parent="Arrows" index="1"]
+visible = true
+
+[node name="ArrowDown" parent="Arrows" index="2"]
+visible = true
+
+[node name="ArrowLeft" parent="Arrows" index="3"]
+visible = true
+
+[editable path="Arrows"]
