@@ -11,3 +11,5 @@ func play_random_shout():
 	var rnd_child = randi() % nr_chldr
 	$Shouts.get_child(rnd_child).play()
 	
+func play_win_sfx():
+	$WinSFX.play()

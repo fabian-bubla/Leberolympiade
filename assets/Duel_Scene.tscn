@@ -16,21 +16,25 @@ centered = false
 
 [node name="WineGlass" parent="." instance=ExtResource( 3 )]
 position = Vector2( 108, 120 )
-controller_id = 0
-Control_Scheme = 0
-combo_attack_threshhold = 5
-player_color_key = 0
-drink_alpha = "cc"
 
 [node name="WineGlass2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 212, 120 )
-controller_id = 0
-combo_attack_threshhold = 5
 player_color_key = 1
-drink_alpha = "cc"
 
 [node name="Grapes" parent="." instance=ExtResource( 4 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 autoplay = true
+
+[node name="WinScreenTexts" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="WinScreenTexts"]
+margin_right = 40.0
+margin_bottom = 14.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

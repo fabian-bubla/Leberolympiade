@@ -31,7 +31,7 @@ visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Straw" type="Sprite" parent="."]
@@ -70,14 +70,6 @@ texture = ExtResource( 10 )
 
 [node name="BlockTimer" type="Timer" parent="."]
 one_shot = true
-
-[node name="ComboMeter" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Arrows" parent="." instance=ExtResource( 3 )]
 
