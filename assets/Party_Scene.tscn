@@ -36,3 +36,10 @@ player_color_key = 3
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
+
+[node name="WinScreenTexts" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

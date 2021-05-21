@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/StartScreen/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/Music/Menu.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/StartScreen/Logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/BG/BG02.png" type="Texture" id=4]
 [ext_resource path="res://assets/StartScreen/BottlesBG.png" type="Texture" id=5]
+[ext_resource path="res://assets/StartScreen/Grape-Off.gd" type="Script" id=6]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,7 +28,12 @@ position = Vector2( 43.2397, 139.095 )
 [node name="Grape-Off" type="Button" parent="Node2D"]
 margin_right = 42.0
 margin_bottom = 20.0
+focus_neighbour_left = NodePath(".")
+focus_neighbour_right = NodePath("../../Node2D2/Gang Grape")
+focus_next = NodePath("../../Node2D2/Gang Grape")
+focus_previous = NodePath("../../Node2D2/Gang Grape")
 text = "Grape-Off"
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -38,6 +44,9 @@ position = Vector2( 197.254, 138.349 )
 [node name="Gang Grape" type="Button" parent="Node2D2"]
 margin_right = 72.0
 margin_bottom = 20.0
+focus_neighbour_left = NodePath("../../Node2D/Grape-Off")
+focus_next = NodePath("../../Node2D/Grape-Off")
+focus_previous = NodePath("../../Node2D/Grape-Off")
 text = "Gang Grape"
 __meta__ = {
 "_edit_use_anchors_": false

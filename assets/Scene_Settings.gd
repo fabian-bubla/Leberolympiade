@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_game_won():
-	$WinSCreenTexts.visible = true
+	$WinScreenTexts.visible = true
 	$Music.stop()
 	AudioManager.play_win_sfx()
 	pass

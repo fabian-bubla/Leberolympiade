@@ -172,7 +172,7 @@ func win():
 	pass
 
 func _on_game_won():
-	
+	pass
 func generate_arrow_presses():
 	while Input_left.size() < Stats.max_score * 5:
 		var new_num = randi() % 4
