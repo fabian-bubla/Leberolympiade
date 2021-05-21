@@ -18,7 +18,7 @@ position = Vector2( 158.099, 92.0278 )
 texture = ExtResource( 5 )
 
 [node name="Logo" type="Sprite" parent="."]
-position = Vector2( 163.29, 101.938 )
+position = Vector2( 159.515, 100.995 )
 texture = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -45,8 +45,8 @@ __meta__ = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
+bus = "MenuMusic"
 
 [node name="Tween" type="Tween" parent="."]
-
 [connection signal="pressed" from="Node2D/Grape-Off" to="." method="_on_Duell_pressed"]
 [connection signal="pressed" from="Node2D2/Gang Grape" to="." method="_on_ganGrape_pressed"]
