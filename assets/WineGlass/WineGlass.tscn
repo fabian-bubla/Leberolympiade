@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://assets/_Arrows/Arrows.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://assets/Hands/Hands01.png" type="Texture" id=7]
 [ext_resource path="res://assets/Hands/HandSprite.gd" type="Script" id=8]
+[ext_resource path="res://assets/WineGlass/Straw01.png" type="Texture" id=9]
+[ext_resource path="res://assets/WineGlass/GlassTransparent01.png" type="Texture" id=10]
+[ext_resource path="res://assets/WineGlass/StrawAway.tres" type="Animation" id=11]
+[ext_resource path="res://assets/WineGlass/StrawIn.tres" type="Animation" id=12]
+[ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=13]
 
 [node name="WineGlass" type="Node2D" groups=[
 "WineGlasses",
@@ -21,6 +26,10 @@ position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
 playing = true
+
+[node name="Straw" type="Sprite" parent="."]
+position = Vector2( 15, -35 )
+texture = ExtResource( 9 )
 
 [node name="Wine" type="Control" parent="."]
 margin_left = 26.0686
@@ -45,6 +54,9 @@ region_rect = Rect2( 0, 0, 48, 52 )
 [node name="Glass" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
+[node name="GlassTransparent01" type="Sprite" parent="."]
+texture = ExtResource( 10 )
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="WinTimer" type="Timer" parent="."]
@@ -60,6 +72,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Arrows" parent="." instance=ExtResource( 3 )]
+
 [node name="HandSprite" type="Sprite" parent="."]
 position = Vector2( 0, 32 )
 texture = ExtResource( 7 )
@@ -67,4 +81,12 @@ hframes = 4
 vframes = 4
 script = ExtResource( 8 )
 
-[node name="Arrows" parent="." instance=ExtResource( 3 )]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "StrawAway"
+anims/StrawAway = ExtResource( 11 )
+anims/StrawIn = ExtResource( 12 )
+
+[node name="BlockPrompt" type="Sprite" parent="."]
+visible = false
+position = Vector2( -76, -87 )
+texture = ExtResource( 13 )

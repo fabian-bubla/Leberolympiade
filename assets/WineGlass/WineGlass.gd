@@ -19,7 +19,7 @@ var block_prompt = false
 var player_color_dict = {
 	0: "6e0022",
 	1: "f6f392",
-	2: 'e9469d',
+	2: 'e27b69',
 	3: 'ffc30f',
 }
 

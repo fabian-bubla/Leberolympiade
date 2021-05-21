@@ -3,31 +3,27 @@
 [ext_resource path="res://assets/BG/BG_GrapesLeft01.png" type="Texture" id=1]
 [ext_resource path="res://assets/BG/BG_GrapesRight01.png" type="Texture" id=2]
 [ext_resource path="res://assets/BG/GrapesIn.tres" type="Animation" id=3]
-[ext_resource path="res://assets/BG/BG_BottleLeft.png" type="Texture" id=4]
-[ext_resource path="res://assets/BG/BG_BottleRight.png" type="Texture" id=5]
+[ext_resource path="res://assets/BG/BG_PartyBottles.png" type="Texture" id=4]
+[ext_resource path="res://assets/BG/BGPartyGrapesIn.tres" type="Animation" id=5]
 
-[node name="Grapes" type="Node2D"]
+[node name="PartyGrapes" type="Node2D"]
 
 [node name="BG_GrapesRight01" type="Sprite" parent="."]
-position = Vector2( 70, 50 )
+position = Vector2( 20, 0 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="BG_GrapesLeft01" type="Sprite" parent="."]
-position = Vector2( -70, 50 )
+position = Vector2( -20, 0 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="BG_BottleLeft" type="Sprite" parent="."]
-position = Vector2( -97, -45 )
+[node name="BG_PartyBottles" type="Sprite" parent="."]
+position = Vector2( 53, -4 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="BG_BottleRight" type="Sprite" parent="."]
-position = Vector2( 97, -45 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "GrapesIn"
+autoplay = "PartyGrapesIn"
 anims/GrapesIn = ExtResource( 3 )
+anims/PartyGrapesIn = ExtResource( 5 )
