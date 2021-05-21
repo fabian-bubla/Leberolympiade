@@ -163,10 +163,7 @@ func win():
 #	$WinDisplay.win_display(biggest_combo_counter,attack_counter,mistakes_counter)
 	is_winner = true
 	
-	var mat = $HandSprite.get_material()
-	mat.set_material('res://assets/WineGlass/winners_shader.tres')
-	mat.set_shader_param('modulate',player_color_dict[player_color_key])
-#
+	
 	for member in get_tree().get_nodes_in_group("WinDisplays"):
 		member.win_display()
 
