@@ -12,3 +12,6 @@ player_color_key = 1
 [node name="WineGlass2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 642.56, 257.024 )
 player_color_key = 2
+
+[editable path="WineGlass"]
+[editable path="WineGlass/Arrows"]

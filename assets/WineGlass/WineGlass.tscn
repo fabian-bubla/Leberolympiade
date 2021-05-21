@@ -58,16 +58,20 @@ __meta__ = {
 position = Vector2( -0.21291, -156.992 )
 rotation = 3.14159
 
-[node name="ArrowUp" parent="Arrows" index="0"]
+[node name="ArrowRight" parent="Arrows" index="0"]
 visible = true
+frame = 0
 
-[node name="ArrowRight" parent="Arrows" index="1"]
+[node name="ArrowLeft" parent="Arrows" index="1"]
 visible = true
+frame = 1
 
 [node name="ArrowDown" parent="Arrows" index="2"]
 visible = true
+frame = 0
 
-[node name="ArrowLeft" parent="Arrows" index="3"]
+[node name="ArrowUp" parent="Arrows" index="3"]
 visible = true
+frame = 1
 
 [editable path="Arrows"]

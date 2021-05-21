@@ -53,12 +53,10 @@ var Controls = [
 
 
 func _ready():
+	GameEvents.connect("block_all_players_input", self,"_on_block_all_players_input")
 	randomize()
 	generate_arrow_presses()
 	modulate_all_assets(player_color_dict[player_color_key])
-#	for i in Stats.max_score:
-#		Input_left.append(randi() % 4)
-		
 	display_correct_arrow()
 	pass
 
@@ -107,6 +105,7 @@ func increment():
 		display_correct_arrow()
 
 func win():
+	GameEvents.emit_signal("block_all_players_input")
 	#WIN PIZAZZ HERE
 	
 	
@@ -164,4 +163,8 @@ func modulate_all_assets(color_code):
 	#ComboMeter
 	$ComboMeter.set_modulate(Color(color_code))
 	print(color_code)
+	pass
+
+func _on_block_all_players_input():
+	self.input_blocked = true
 	pass

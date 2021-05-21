@@ -37,7 +37,7 @@ region_rect = Rect2( 0, 0, 48, 52 )
 
 [node name="Arrows" parent="." instance=ExtResource( 3 )]
 
-[node name="ArrowUp" parent="Arrows" index="0"]
+[node name="ArrowLeft" parent="Arrows" index="0"]
 visible = true
 position = Vector2( 1, -76 )
 
@@ -45,11 +45,11 @@ position = Vector2( 1, -76 )
 visible = true
 position = Vector2( 1, -76 )
 
-[node name="ArrowDown" parent="Arrows" index="2"]
+[node name="ArrowUp" parent="Arrows" index="2"]
 visible = true
 position = Vector2( 1, -76 )
 
-[node name="ArrowLeft" parent="Arrows" index="3"]
+[node name="ArrowDown" parent="Arrows" index="3"]
 visible = true
 position = Vector2( 1, -76 )
 
