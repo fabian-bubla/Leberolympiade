@@ -12,11 +12,10 @@
 [node name="WineGlass" parent="." instance=ExtResource( 1 )]
 position = Vector2( 108, 120 )
 Control_Scheme = 0
-player_color_key = 1
 
 [node name="WineGlass2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 212, 120 )
-player_color_key = 2
+player_color_key = 1
 
 [node name="Grapes" parent="." instance=ExtResource( 3 )]
 
