@@ -56,22 +56,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Arrows" parent="." instance=ExtResource( 3 )]
-position = Vector2( -0.21291, -156.992 )
-rotation = 3.14159
-
-[node name="ArrowLeft" parent="Arrows" index="0"]
-visible = true
-
-[node name="ArrowDown" parent="Arrows" index="1"]
-visible = true
-
-[node name="ArrowRight" parent="Arrows" index="2"]
-visible = true
-
-[node name="ArrowUp" parent="Arrows" index="3"]
-visible = true
-
 [node name="HandSprite" type="Sprite" parent="." groups=[
 "HandSprites",
 ]]
@@ -80,4 +64,4 @@ hframes = 5
 vframes = 3
 script = ExtResource( 8 )
 
-[editable path="Arrows"]
+[node name="Arrows" parent="." instance=ExtResource( 3 )]

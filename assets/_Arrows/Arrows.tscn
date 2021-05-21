@@ -5,14 +5,12 @@
 [node name="Arrows" type="Node2D"]
 
 [node name="ArrowLeft" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 1 )
 animation = "Left"
 playing = true
 
 [node name="ArrowRight" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 1 )
 animation = "Right"
@@ -20,16 +18,15 @@ frame = 2
 playing = true
 
 [node name="ArrowUp" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 1 )
 animation = "Up"
+frame = 2
 playing = true
 
 [node name="ArrowDown" type="AnimatedSprite" parent="."]
-visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 1 )
 animation = "Down"
-frame = 2
+frame = 1
 playing = true
