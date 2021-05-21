@@ -1,6 +1,83 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/AudioManager/AudioManager.gd" type="Script" id=1]
+[ext_resource path="res://assets/SFX/Shout11.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/SFX/Shout10.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/SFX/Shout1.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/SFX/Shout14.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/SFX/Shout2.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/SFX/Shout13.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/SFX/Shout15.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/SFX/Shout7.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/SFX/Shout3.wav" type="AudioStream" id=10]
+[ext_resource path="res://assets/SFX/Shout12.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/SFX/Shout9.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/SFX/Shout4.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/SFX/Shout6.wav" type="AudioStream" id=14]
+[ext_resource path="res://assets/SFX/Shout5.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/SFX/Shout8.wav" type="AudioStream" id=16]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Shouts" type="Node" parent="."]
+
+[node name="Shout01" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 4 )
+bus = "ShoutsSFX"
+
+[node name="Shout02" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 6 )
+bus = "ShoutsSFX"
+
+[node name="Shout03" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 10 )
+bus = "ShoutsSFX"
+
+[node name="Shout04" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 13 )
+bus = "ShoutsSFX"
+
+[node name="Shout05" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 15 )
+bus = "ShoutsSFX"
+
+[node name="Shout06" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 14 )
+bus = "ShoutsSFX"
+
+[node name="Shout07" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 9 )
+bus = "ShoutsSFX"
+
+[node name="Shout08" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 16 )
+bus = "ShoutsSFX"
+
+[node name="Shout09" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 12 )
+bus = "ShoutsSFX"
+
+[node name="Shout10" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 3 )
+bus = "ShoutsSFX"
+
+[node name="Shout11" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 2 )
+bus = "ShoutsSFX"
+
+[node name="Shout12" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 11 )
+bus = "ShoutsSFX"
+
+[node name="Shout13" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 7 )
+bus = "ShoutsSFX"
+
+[node name="Shout14" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 5 )
+bus = "ShoutsSFX"
+
+[node name="Shout15" type="AudioStreamPlayer" parent="Shouts"]
+stream = ExtResource( 8 )
+bus = "ShoutsSFX"
