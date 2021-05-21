@@ -9,6 +9,18 @@ position = Vector2( 479.458, 257.709 )
 Control_Scheme = 0
 player_color_key = 1
 
+[node name="ArrowRight" parent="WineGlass/Arrows" index="0"]
+frame = 1
+
+[node name="ArrowLeft" parent="WineGlass/Arrows" index="1"]
+frame = 2
+
+[node name="ArrowDown" parent="WineGlass/Arrows" index="2"]
+frame = 1
+
+[node name="ArrowUp" parent="WineGlass/Arrows" index="3"]
+frame = 2
+
 [node name="WineGlass2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 642.56, 257.024 )
 player_color_key = 2
