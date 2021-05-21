@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -13,12 +13,18 @@
 [ext_resource path="res://assets/WineGlass/StrawAway.tres" type="Animation" id=11]
 [ext_resource path="res://assets/WineGlass/StrawIn.tres" type="Animation" id=12]
 [ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=13]
+[ext_resource path="res://assets/WineGlass/Limette01.png" type="Texture" id=14]
 
 [node name="WineGlass" type="Node2D" groups=[
 "WineGlasses",
 ]]
 script = ExtResource( 5 )
 Control_Scheme = 1
+
+[node name="LimeSprite" type="Sprite" parent="."]
+position = Vector2( -16.0543, -46.6763 )
+texture = ExtResource( 14 )
+hframes = 5
 
 [node name="xSprite" type="AnimatedSprite" parent="."]
 visible = false
@@ -90,5 +96,3 @@ anims/StrawIn = ExtResource( 12 )
 visible = false
 position = Vector2( -76, -87 )
 texture = ExtResource( 13 )
-
-[node name="LimeSprite" type="Sprite" parent="."]

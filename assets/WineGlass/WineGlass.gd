@@ -215,7 +215,7 @@ func set_combo_meter(reset=false):
 
 func set_lime_sprite():
 	var show_frame = 0
-	if combo_attack_threshhold == '5':
+	if combo_attack_threshhold == 5:
 		if combo_meter == 2:
 			show_frame = 1
 		if combo_meter == 3:
@@ -225,7 +225,7 @@ func set_lime_sprite():
 		if combo_meter >= 5:
 			show_frame = 4
 			
-	if combo_attack_threshhold == '10':
+	if combo_attack_threshhold == 10:
 		if combo_meter == 4:
 			show_frame = 1
 		if combo_meter == 6:
@@ -237,9 +237,7 @@ func set_lime_sprite():
 	
 	$LimeSprite.frame = show_frame
 	
-		
-			
-	$LimeSprite.
+#	$LimeSprite.
 func modulate_all_assets(color_code):
 	#xSprite
 	$xSprite.set_modulate(Color(color_code))
