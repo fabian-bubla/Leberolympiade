@@ -56,12 +56,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HandSprite" type="Sprite" parent="." groups=[
-"HandSprites",
-]]
+[node name="HandSprite" type="Sprite" parent="."]
 texture = ExtResource( 7 )
-hframes = 5
-vframes = 3
+hframes = 4
+vframes = 4
 script = ExtResource( 8 )
 
 [node name="Arrows" parent="." instance=ExtResource( 3 )]
