@@ -60,13 +60,13 @@ __meta__ = {
 position = Vector2( -0.21291, -156.992 )
 rotation = 3.14159
 
-[node name="ArrowRight" parent="Arrows" index="0"]
+[node name="ArrowLeft" parent="Arrows" index="0"]
 visible = true
 
-[node name="ArrowLeft" parent="Arrows" index="1"]
+[node name="ArrowDown" parent="Arrows" index="1"]
 visible = true
 
-[node name="ArrowDown" parent="Arrows" index="2"]
+[node name="ArrowRight" parent="Arrows" index="2"]
 visible = true
 
 [node name="ArrowUp" parent="Arrows" index="3"]

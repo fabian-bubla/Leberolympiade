@@ -1,21 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass.gd" type="Script" id=2]
 [ext_resource path="res://assets/_Arrows/Arrows.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=4]
 [ext_resource path="res://assets/WineGlass/WineRed_01.png" type="Texture" id=5]
-[ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=6]
-[ext_resource path="res://assets/_Arrows/Arrows.tres" type="SpriteFrames" id=7]
 
 [node name="WineGlass" type="Node2D"]
 script = ExtResource( 2 )
 Control_Scheme = 1
-
-[node name="xSprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 1.7818, -60.5811 )
-texture = ExtResource( 6 )
 
 [node name="Glass" type="Sprite" parent="."]
 texture = ExtResource( 4 )
@@ -42,41 +35,28 @@ region_rect = Rect2( 0, 0, 48, 52 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="WinTimer" type="Timer" parent="."]
-
-[node name="BlockTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="ComboMeter" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Arrows" parent="." instance=ExtResource( 3 )]
-position = Vector2( -0.21291, -156.992 )
-rotation = 3.14159
 
 [node name="ArrowRight" parent="Arrows" index="0"]
 visible = true
+position = Vector2( 1, -76 )
 frame = 0
 
 [node name="ArrowLeft" parent="Arrows" index="1"]
+visible = true
+position = Vector2( 1, -76 )
 frame = 1
 
 [node name="ArrowDown" parent="Arrows" index="2"]
+visible = true
+position = Vector2( 1, -76 )
 frame = 0
 
 [node name="ArrowUp" parent="Arrows" index="3"]
+visible = true
+position = Vector2( 1, -76 )
 frame = 1
 
-[node name="xAnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -1.49012e-08, -85 )
-frames = ExtResource( 7 )
-animation = "X"
-frame = 2
-playing = true
+[node name="WinTimer" type="Timer" parent="."]
 
 [editable path="Arrows"]
