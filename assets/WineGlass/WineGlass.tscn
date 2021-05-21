@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
+[ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
+[ext_resource path="res://assets/TempArrows/TempArrow.png" type="Texture" id=3]
+[ext_resource path="res://assets/WineGlass/WineRed_01.png" type="Texture" id=4]
+[ext_resource path="res://assets/WineGlass/WineGlass.gd" type="Script" id=5]
+
+[node name="WineGlass" type="Node2D"]
+script = ExtResource( 5 )
+Control_Scheme = 1
+
+[node name="Glass" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Wine" type="Control" parent="."]
+margin_left = 26.0686
+margin_top = 7.82377
+margin_right = 78.0686
+margin_bottom = 9.0
+grow_vertical = 0
+rect_scale = Vector2( -1, -1 )
+rect_clip_content = true
+size_flags_vertical = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wine" type="Sprite" parent="Wine"]
+position = Vector2( 26, 28 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 48, 52 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Arrows" type="Node2D" parent="."]
+position = Vector2( 1.75685, -60.7006 )
+
+[node name="TempArrowLeft" type="Sprite" parent="Arrows"]
+texture = ExtResource( 3 )
+
+[node name="TempArrowRight" type="Sprite" parent="Arrows"]
+rotation = -3.14159
+texture = ExtResource( 3 )
+
+[node name="TempArrowUp" type="Sprite" parent="Arrows"]
+rotation = 1.5708
+texture = ExtResource( 3 )
+
+[node name="TempArrowDown" type="Sprite" parent="Arrows"]
+rotation = 4.71239
+texture = ExtResource( 3 )
+
+[node name="WinTimer" type="Timer" parent="."]
+
+[node name="BlockTimer" type="Timer" parent="."]

@@ -1,0 +1,391 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/Dialogue/json_dock.gd" type="Script" id=1]
+[ext_resource path="res://addons/Dialogue/button.gd" type="Script" id=2]
+
+[sub_resource type="Image" id=15]
+data = {
+"data": PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ),
+"format": "LumAlpha8",
+"height": 16,
+"mipmaps": false,
+"width": 16
+}
+
+[sub_resource type="ImageTexture" id=2]
+flags = 4
+flags = 4
+image = SubResource( 15 )
+size = Vector2( 16, 16 )
+
+[sub_resource type="InputEventKey" id=13]
+control = true
+command = true
+scancode = 83
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
+[sub_resource type="InputEventKey" id=3]
+scancode = 16777220
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="GDScript" id=5]
+script/source = "tool
+extends Button
+
+export(String) var icon_name: String
+export(String) var type: String = \"EditorIcons\"
+
+func _ready():
+	# Somehow not deferring makes the icon hidden
+	call_deferred(\"_add_props\")
+
+func _add_props():
+	icon = get_icon(icon_name, type)
+"
+
+[sub_resource type="InputEventKey" id=7]
+scancode = 16777218
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventKey" id=10]
+shift = true
+scancode = 16777218
+
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
+
+[node name="Dialogue" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+size_flags_vertical = 3
+
+[node name="Tools" type="HSplitContainer" parent="VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 22.0
+split_offset = 129
+
+[node name="Left" type="HBoxContainer" parent="VBoxContainer/Tools"]
+margin_right = 302.0
+margin_bottom = 22.0
+
+[node name="Open Settings" type="Button" parent="VBoxContainer/Tools/Left"]
+margin_right = 28.0
+margin_bottom = 22.0
+hint_tooltip = "Open settings popup"
+icon = SubResource( 2 )
+flat = true
+script = ExtResource( 2 )
+icon_name = "GDScript"
+
+[node name="Open File" type="Button" parent="VBoxContainer/Tools/Left"]
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 22.0
+hint_tooltip = "Load a JSON file from disk"
+icon = SubResource( 2 )
+flat = true
+script = ExtResource( 2 )
+icon_name = "Load"
+
+[node name="Save File" type="Button" parent="VBoxContainer/Tools/Left"]
+margin_left = 64.0
+margin_right = 92.0
+margin_bottom = 22.0
+hint_tooltip = "Save contents to disk"
+shortcut = SubResource( 14 )
+icon = SubResource( 2 )
+flat = true
+script = ExtResource( 2 )
+icon_name = "Save"
+
+[node name="File Name" type="Label" parent="VBoxContainer/Tools/Left"]
+margin_left = 96.0
+margin_top = 4.0
+margin_right = 96.0
+margin_bottom = 18.0
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Tools/Left"]
+margin_left = 100.0
+margin_right = 153.0
+margin_bottom = 22.0
+text = "Left"
+items = [ "Left", null, false, 0, null, "Middle", null, false, 1, null, "Right", null, false, 2, null ]
+selected = 0
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Tools/Left"]
+margin_left = 157.0
+margin_right = 302.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_value = 10.0
+step = 0.3
+page = 1.0
+value = 5.1
+rounded = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="HBoxContainer" parent="VBoxContainer/Tools"]
+margin_left = 314.0
+margin_right = 1010.0
+margin_bottom = 22.0
+alignment = 2
+
+[node name="Close File" type="Button" parent="VBoxContainer/Tools/Right"]
+margin_left = 668.0
+margin_right = 696.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( -753.801, -92.3996 )
+hint_tooltip = "Close files and discard any changes"
+icon = SubResource( 2 )
+flat = true
+script = ExtResource( 2 )
+icon_name = "Close"
+
+[node name="Tree Manipulation Tools" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 26.0
+margin_right = 1010.0
+margin_bottom = 48.0
+
+[node name="Add Entry" type="MenuButton" parent="VBoxContainer/Tree Manipulation Tools"]
+margin_right = 28.0
+margin_bottom = 22.0
+icon = SubResource( 2 )
+items = [ "Object", null, 0, false, false, 0, 0, null, "", false, "person", null, 0, false, false, 1, 0, null, "", false, "text", null, 0, false, false, 2, 0, null, "", false, "voicebox", null, 0, false, false, 3, 0, null, "", false, "pitch", null, 0, false, false, 4, 0, null, "", false, "char_time", null, 0, false, false, 5, 0, null, "", false, "wait_time", null, 0, false, false, 6, 0, null, "", false, "font", null, 0, false, false, 7, 0, null, "", false, "font_color", null, 0, false, false, 8, 0, null, "", false, "font_size", null, 0, false, false, 9, 0, null, "", false, "func", null, 0, false, false, 10, 0, null, "", false, "args", null, 0, false, false, 11, 0, null, "", false, "add_knot", null, 0, false, false, 12, 0, null, "", false, "erase_knot", null, 0, false, false, 13, 0, null, "", false ]
+script = ExtResource( 2 )
+icon_name = "Add"
+
+[node name="MenuButton" type="MenuButton" parent="VBoxContainer/Tree Manipulation Tools"]
+visible = false
+self_modulate = Color( 0.0305786, 0.652344, 0.404609, 1 )
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 22.0
+icon = SubResource( 2 )
+items = [ "Object", null, 0, false, false, 0, 0, null, "", false, "voicebox", null, 0, false, false, 1, 0, null, "", false, "pitch", null, 0, false, false, 2, 0, null, "", false, "char_time", null, 0, false, false, 3, 0, null, "", false, "wait_time", null, 0, false, false, 4, 0, null, "", false, "font", null, 0, false, false, 5, 0, null, "", false, "font_color", null, 0, false, false, 6, 0, null, "", false, "font_size", null, 0, false, false, 7, 0, null, "", false, "func", null, 0, false, false, 8, 0, null, "", false, "args", null, 0, false, false, 9, 0, null, "", false ]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_name = "Add"
+
+[node name="Remove Entry" type="Button" parent="VBoxContainer/Tree Manipulation Tools"]
+margin_left = 32.0
+margin_right = 60.0
+margin_bottom = 22.0
+shortcut = SubResource( 4 )
+icon = SubResource( 2 )
+flat = true
+script = ExtResource( 2 )
+icon_name = "Remove"
+
+[node name="NewBubble" type="Button" parent="VBoxContainer/Tree Manipulation Tools"]
+margin_left = 64.0
+margin_right = 171.0
+margin_bottom = 22.0
+hint_tooltip = "Creates a new Bubble"
+text = "New Bubble"
+icon = SubResource( 2 )
+script = SubResource( 5 )
+icon_name = "New Bubble"
+type = "EditorIcons"
+
+[node name="NewConv" type="Button" parent="VBoxContainer/Tree Manipulation Tools"]
+margin_left = 175.0
+margin_right = 268.0
+margin_bottom = 22.0
+text = "New Conv"
+icon = SubResource( 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_name = "NewConv"
+
+[node name="NewCharacter" type="Button" parent="VBoxContainer/Tree Manipulation Tools"]
+margin_left = 272.0
+margin_right = 362.0
+margin_bottom = 22.0
+text = "New Char"
+icon = SubResource( 2 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+icon_name = "New Character"
+
+[node name="Next" type="Button" parent="VBoxContainer/Tree Manipulation Tools"]
+visible = false
+margin_left = 366.0
+margin_right = 378.0
+margin_bottom = 22.0
+shortcut = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Previous" type="Button" parent="VBoxContainer/Tree Manipulation Tools"]
+visible = false
+margin_left = 366.0
+margin_right = 378.0
+margin_bottom = 22.0
+shortcut = SubResource( 11 )
+
+[node name="Tree" type="Tree" parent="VBoxContainer"]
+margin_top = 52.0
+margin_right = 1010.0
+margin_bottom = 586.0
+rect_clip_content = false
+size_flags_vertical = 3
+columns = 3
+allow_reselect = true
+allow_rmb_select = true
+select_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="PopupPanel" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 189.0
+margin_bottom = 95.0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Settings"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 178.0
+margin_bottom = 84.0
+dragger_visibility = 1
+
+[node name="Navigation Bar" type="HSplitContainer" parent="Settings/VSplitContainer"]
+margin_right = 174.0
+margin_bottom = 20.0
+dragger_visibility = 1
+
+[node name="Left" type="HBoxContainer" parent="Settings/VSplitContainer/Navigation Bar"]
+margin_right = 127.0
+margin_bottom = 20.0
+
+[node name="Title" type="Label" parent="Settings/VSplitContainer/Navigation Bar/Left"]
+margin_top = 3.0
+margin_right = 127.0
+margin_bottom = 17.0
+text = "JSON Editor Settings"
+
+[node name="Right" type="HBoxContainer" parent="Settings/VSplitContainer/Navigation Bar"]
+margin_left = 139.0
+margin_right = 174.0
+margin_bottom = 20.0
+alignment = 2
+
+[node name="Close" type="Button" parent="Settings/VSplitContainer/Navigation Bar/Right"]
+margin_left = 23.0
+margin_right = 35.0
+margin_bottom = 20.0
+icon = SubResource( 2 )
+flat = true
+script = ExtResource( 2 )
+icon_name = "Close"
+
+[node name="Contents" type="VBoxContainer" parent="Settings/VSplitContainer"]
+margin_top = 32.0
+margin_right = 174.0
+margin_bottom = 80.0
+
+[node name="Indentation" type="HSplitContainer" parent="Settings/VSplitContainer/Contents"]
+margin_right = 174.0
+margin_bottom = 20.0
+dragger_visibility = 1
+
+[node name="Label" type="Label" parent="Settings/VSplitContainer/Contents/Indentation"]
+margin_top = 3.0
+margin_right = 133.0
+margin_bottom = 17.0
+hint_tooltip = "Type of indentation to use when saving JSON to disk."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "Indentation"
+
+[node name="OptionButton" type="OptionButton" parent="Settings/VSplitContainer/Contents/Indentation"]
+margin_left = 145.0
+margin_right = 174.0
+margin_bottom = 20.0
+text = "2 wide spaces"
+items = [ "2 wide spaces", null, false, 0, null, "4 wide spaces", null, false, 1, null, "8 wide spaces", null, false, 2, null, "tabs", null, false, 3, null, "no formatting", null, false, 4, null ]
+selected = 0
+
+[node name="Auto-parenting" type="HSplitContainer" parent="Settings/VSplitContainer/Contents"]
+margin_top = 24.0
+margin_right = 174.0
+margin_bottom = 48.0
+dragger_visibility = 1
+
+[node name="Label" type="Label" parent="Settings/VSplitContainer/Contents/Auto-parenting"]
+margin_top = 5.0
+margin_right = 138.0
+margin_bottom = 19.0
+hint_tooltip = "When trying to add a child to a non-object/array element, automatically and silently go for the nearest object/array."
+mouse_filter = 0
+size_flags_horizontal = 3
+text = "Auto-find valid parent"
+
+[node name="CheckBox" type="CheckBox" parent="Settings/VSplitContainer/Contents/Auto-parenting"]
+margin_left = 150.0
+margin_right = 174.0
+margin_bottom = 24.0
+
+[node name="Close File Confirmation" type="ConfirmationDialog" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 207.0
+margin_bottom = 77.0
+dialog_text = "There may have been changes, discard them?"
+
+[node name="Error Dialog" type="AcceptDialog" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 143.0
+margin_bottom = 65.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 369.0
+margin_bottom = 60.0
+color = Color( 0.341176, 0.341176, 0.341176, 1 )
+[connection signal="pressed" from="VBoxContainer/Tools/Left/Open Settings" to="." method="_open_settings"]
+[connection signal="pressed" from="VBoxContainer/Tools/Left/Open File" to="." method="_request_open_file"]
+[connection signal="pressed" from="VBoxContainer/Tools/Left/Save File" to="." method="_request_save_file"]
+[connection signal="value_changed" from="VBoxContainer/Tools/Left/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Tools/Right/Close File" to="." method="_request_close_file"]
+[connection signal="pressed" from="VBoxContainer/Tree Manipulation Tools/Remove Entry" to="." method="_remove_selected_element"]
+[connection signal="pressed" from="VBoxContainer/Tree Manipulation Tools/NewBubble" to="." method="_on_NewBubble_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tree Manipulation Tools/NewConv" to="." method="_on_NewConv_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tree Manipulation Tools/NewCharacter" to="." method="_on_NewCharacter_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tree Manipulation Tools/Next" to="." method="_on_Next_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tree Manipulation Tools/Previous" to="." method="_on_Previous_pressed"]
+[connection signal="pressed" from="Settings/VSplitContainer/Navigation Bar/Right/Close" to="." method="_close_settings"]
+[connection signal="item_selected" from="Settings/VSplitContainer/Contents/Indentation/OptionButton" to="." method="_select_indentation"]
+[connection signal="toggled" from="Settings/VSplitContainer/Contents/Auto-parenting/CheckBox" to="." method="_set_auto_parenting_option"]
+[connection signal="confirmed" from="Close File Confirmation" to="." method="_close_file"]

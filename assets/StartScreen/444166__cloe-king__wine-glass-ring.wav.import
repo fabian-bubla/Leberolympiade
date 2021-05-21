@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/444166__cloe-king__wine-glass-ring.wav-e513e719d20069bd18af9cd59dbc0199.sample"
+
+[deps]
+
+source_file="res://assets/StartScreen/444166__cloe-king__wine-glass-ring.wav"
+dest_files=[ "res://.import/444166__cloe-king__wine-glass-ring.wav-e513e719d20069bd18af9cd59dbc0199.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
