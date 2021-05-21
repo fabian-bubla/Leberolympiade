@@ -1,20 +1,25 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/WineGlass/WineGlass.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/BG/BG_TableandWall01.png" type="Texture" id=2]
 
 [node name="Duel_Scene" type="Node2D"]
 
+[node name="BG_TableandWall01" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+
 [node name="WineGlass" parent="." instance=ExtResource( 1 )]
-position = Vector2( 285.43, 282.907 )
+position = Vector2( 66, 121 )
 Control_Scheme = 0
 
 [node name="WineGlass2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 448.532, 282.222 )
+position = Vector2( 128, 121 )
 
 [node name="WineGlass3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 585.863, 280.962 )
+position = Vector2( 192, 121 )
 Control_Scheme = 2
 
 [node name="WineGlass4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 747.133, 282.222 )
+position = Vector2( 254, 121 )
 Control_Scheme = 3

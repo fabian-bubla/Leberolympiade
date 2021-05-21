@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/BG/BG_GrapesLeft01.png" type="Texture" id=1]
+[ext_resource path="res://assets/BG/BG_GrapesRight01.png" type="Texture" id=2]
+[ext_resource path="res://assets/BG/GrapesIn.tres" type="Animation" id=3]
+
+[node name="Grapes" type="Node2D"]
+
+[node name="BG_GrapesRight01" type="Sprite" parent="."]
+position = Vector2( 70, 50 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="BG_GrapesLeft01" type="Sprite" parent="."]
+position = Vector2( -70, 50 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "GrapesIn"
+anims/GrapesIn = ExtResource( 3 )

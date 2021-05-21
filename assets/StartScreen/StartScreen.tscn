@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2( 278.982, 286.991 )
+position = Vector2( 55.982, 81.991 )
 
 [node name="Grape-Off" type="Button" parent="Node2D"]
 margin_right = 42.0
@@ -18,12 +18,12 @@ __meta__ = {
 }
 
 [node name="Node2D2" type="Node2D" parent="."]
-position = Vector2( 564.637, 289.66 )
+position = Vector2( 207.637, 82.66 )
 
-[node name="ganGrape" type="Button" parent="Node2D2"]
+[node name="Gang Grape" type="Button" parent="Node2D2"]
 margin_right = 72.0
 margin_bottom = 20.0
-text = "ganGrape"
+text = "Gang Grape"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,4 +37,4 @@ autoplay = true
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="Node2D/Grape-Off" to="." method="_on_Duell_pressed"]
-[connection signal="pressed" from="Node2D2/ganGrape" to="." method="_on_ganGrape_pressed"]
+[connection signal="pressed" from="Node2D2/Gang Grape" to="." method="_on_ganGrape_pressed"]
