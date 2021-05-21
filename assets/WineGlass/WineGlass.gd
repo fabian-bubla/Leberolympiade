@@ -8,7 +8,13 @@ var current_score = 0
 var max_score = Stats.max_score #add that to some singleton
 var inverted_flag = false
 var combo_meter = 0 setget set_combo_meter
-var total_combo = 0
+
+#STATS COUNTERS
+var biggest_combo_counter = 0
+var attack_counter = 0
+var mistakes_counter = 0
+
+
 
 
 var wine_fill_value: float = 9.0
@@ -118,6 +124,7 @@ func _process(_delta):
 		if combo_meter >= combo_attack_threshhold:
 			GameEvents.emit_signal("attack_launched", self)
 			set_combo_meter(true)
+			attack_counter += 1
 			pass
 		pass
 	#interpolate amount of wine in Glass each frame
@@ -149,8 +156,14 @@ func increment():
 
 func win():
 	GameEvents.emit_signal("block_all_players_input")
-	#WIN PIZAZZ HERE
 	
+	print('biggest. combo: ' + str(biggest_combo_counter),
+	'atk counter' + str (attack_counter),
+	'mistake counter' + str(mistakes_counter))
+	#
+	
+	
+	#WIN PIZAZZ HERE
 	
 	#END
 	$WinTimer.start()
@@ -183,18 +196,16 @@ func invert():
 	pass
 
 func you_pressed_wrong_button():
+	mistakes_counter +=1
+	
 	$BlockTimer.start()
 	input_blocked = true
 	$xSprite.visible = true
-	
-	var arrow_list = $Arrows.get_children()
-	for i in arrow_list:
-		i.visible = false
+	hide_all_arrows()
 	
 	yield($BlockTimer,"timeout")
 	
-	arrow_list[Input_left[0]].visible = true
-	
+	display_correct_arrow()
 	set_combo_meter(true)
 	input_blocked = false
 	$xSprite.visible = false
@@ -203,15 +214,15 @@ func you_pressed_wrong_button():
 func set_combo_meter(reset=false):
 	if reset == true:
 		combo_meter = 0
-		$ComboMeter.text = str(0)
+#		$ComboMeter.text = str(0)
 	else:
 		combo_meter += 1
-		$ComboMeter.text = str(combo_meter)
+#		$ComboMeter.text = str(combo_meter)
 	
 	set_lime_sprite()
 	
-	if combo_meter >= total_combo:
-		total_combo = combo_meter
+	if combo_meter >= biggest_combo_counter:
+		biggest_combo_counter = combo_meter
 
 func set_lime_sprite():
 	var show_frame = 0
@@ -247,7 +258,7 @@ func modulate_all_assets(color_code):
 	for i in $Arrows.get_children():
 		i.set_modulate(Color(color_code))
 	#ComboMeter
-	$ComboMeter.set_modulate(Color(color_code))
+#	$ComboMeter.set_modulate(Color(color_code))
 	print(color_code)
 	pass
 
@@ -269,6 +280,7 @@ func queue_block_prompt():
 #	set_combo_meter(true) #FIXME Make two counters one total and one since last, witha  bar!
 
 func punish_player():
+	mistakes_counter +=1
 	var punishment_value = 1
 	set_combo_meter(true)
 	if !inverted_flag:
@@ -278,3 +290,7 @@ func punish_player():
 		
 	wine_fill_value = 9 + 62 /max_score * abs(current_score) 
 	pass
+
+func create_win_screen_dict ():
+	for member in get_tree().get_nodes_in_group("WineGlasses"):
+		pass

@@ -16,11 +16,18 @@ centered = false
 
 [node name="WineGlass" parent="." instance=ExtResource( 3 )]
 position = Vector2( 108, 120 )
+controller_id = 0
 Control_Scheme = 0
+combo_attack_threshhold = 5
+player_color_key = 0
+drink_alpha = "cc"
 
 [node name="WineGlass2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 212, 120 )
+controller_id = 0
+combo_attack_threshhold = 5
 player_color_key = 1
+drink_alpha = "cc"
 
 [node name="Grapes" parent="." instance=ExtResource( 4 )]
 
