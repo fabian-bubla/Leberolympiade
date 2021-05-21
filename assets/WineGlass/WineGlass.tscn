@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://assets/_Arrows/Arrows.tres" type="SpriteFrames" id=6]
 [ext_resource path="res://assets/Hands/Hands01.png" type="Texture" id=7]
 [ext_resource path="res://assets/Hands/HandSprite.gd" type="Script" id=8]
-[ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=9]
 
 [node name="WineGlass" type="Node2D" groups=[
 "WineGlasses",
@@ -69,7 +68,3 @@ vframes = 4
 script = ExtResource( 8 )
 
 [node name="Arrows" parent="." instance=ExtResource( 3 )]
-
-[node name="BlockPrompt" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 9 )

@@ -67,6 +67,7 @@ func _ready():
 	randomize()
 	generate_arrow_presses()
 	modulate_all_assets(player_color_dict[player_color_key])
+	hide_all_arrows()
 	display_correct_arrow()
 	pass
 
@@ -76,21 +77,26 @@ func _ready():
 func _process(_delta):
 	
 	if block_prompt:
-		if Input.is_action_just_pressed('blockPLACEHOLDER'):
+		if Input.is_action_just_pressed(int_button_dict.values()[-1]):
 			pass
+			block_prompt = false
+			$BlockPrompt.visible = false
+			display_correct_arrow()
+			#PLAY ANIMATION
 			#remove block prompt
 			#block_prompt = false
 		else:
 			for i in int_button_dict.values().slice(0,-2):#IDEA IS THAT any other button than block! RECHCECK
 				if Input.is_action_just_pressed(i):
 					pass
+					punish_player()
 					#punish player
 					#remove block_prompt
 		
 	#LEFT CHECK
 	elif !input_blocked:
 		#IS the Input pressed for the left side?
-		for i in int_button_dict.values().slice(0,-2): #for all buttons but last, so attack button
+		for i in int_button_dict.values().slice(0,-3): #for all buttons but last, so attack button
 
 			#which of the buttons of the left side where pressed iterate
 			if Input.is_action_just_pressed(i):
@@ -126,12 +132,15 @@ func increment():
 	print(current_score, '    ', wine_fill_value)
 	if current_score == max_score:
 		invert()
+		hide_all_arrows()
+		display_correct_arrow()
 #		win()
 	elif current_score == 0 and inverted_flag == true:
 		win()
 #	elif current_score > max_score:
 #		pass
 	else:
+		hide_all_arrows()
 		display_correct_arrow()
 
 func win():
@@ -146,24 +155,27 @@ func win():
 	pass
 
 func generate_arrow_presses():
-	while Input_left.size() < Stats.max_score:
+	while Input_left.size() < Stats.max_score * 5:
 		var new_num = randi() % 4
 		if Input_left.size() == 0:
 			Input_left.append(new_num)
 		elif new_num != Input_left[-1]:
 			Input_left.append(new_num)
 
-func display_correct_arrow():
+func hide_all_arrows():
 	var arrow_list = $Arrows.get_children()
 	for i in arrow_list:
 		i.visible = false
+
+func display_correct_arrow():
+	var arrow_list = $Arrows.get_children()
 	arrow_list[Input_left[0]].visible = true
 	pass
 
 func invert():
 	inverted_flag = true
-	input_accomplished.invert()
-	Input_left = input_accomplished
+#	input_accomplished.invert()
+#	Input_left = input_accomplished
 	pass
 
 func you_pressed_wrong_button():
@@ -217,5 +229,16 @@ func _on_attack_launched(who):
 
 func queue_block_prompt():
 	block_prompt = true
-	block_prompt.visible = true
+	$BlockPrompt.visible = true
+	hide_all_arrows()
+
+func punish_player():
+	var punishment_value = 1
+	set_combo_meter(true)
+	if !inverted_flag:
+		current_score = current_score - punishment_value
+	else:
+		current_score = current_score + punishment_value
+		
+	wine_fill_value = 9 + 62 /max_score * abs(current_score) 
 	pass
