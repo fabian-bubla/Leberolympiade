@@ -80,7 +80,8 @@ func _process(_delta):
 		if Input.is_action_just_pressed(int_button_dict.values()[-1]):
 			pass
 			block_prompt = false
-			$BlockPrompt.visible = false
+			$AnimationPlayer.play("StrawAway")
+#			$BlockPrompt.visible = false
 			display_correct_arrow()
 			#PLAY ANIMATION
 			#remove block prompt
@@ -112,8 +113,9 @@ func _process(_delta):
 					pass
 	
 	if Input.is_action_just_pressed(int_button_dict.values()[4]):
-		if combo_meter > 5:
+		if combo_meter >= 5:
 			GameEvents.emit_signal("attack_launched", self)
+			set_combo_meter(true)
 			pass
 		pass
 	#interpolate amount of wine in Glass each frame
@@ -229,8 +231,10 @@ func _on_attack_launched(who):
 
 func queue_block_prompt():
 	block_prompt = true
-	$BlockPrompt.visible = true
+	$AnimationPlayer.play("StrawIn")
+#	$BlockPrompt.visible = true
 	hide_all_arrows()
+#	set_combo_meter(true) #FIXME Make two counters one total and one since last, witha  bar!
 
 func punish_player():
 	var punishment_value = 1
