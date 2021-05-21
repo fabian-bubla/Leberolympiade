@@ -14,20 +14,20 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="WineGlass" parent="." instance=ExtResource( 1 )]
-position = Vector2( 64, 121 )
+position = Vector2( 64, 120 )
 Control_Scheme = 0
 
 [node name="WineGlass2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 128, 121 )
+position = Vector2( 128, 120 )
 player_color_key = 1
 
 [node name="WineGlass3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 192, 121 )
+position = Vector2( 192, 120 )
 Control_Scheme = 2
 player_color_key = 2
 
 [node name="WineGlass4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 256, 121 )
+position = Vector2( 256, 120 )
 Control_Scheme = 3
 player_color_key = 3
 
