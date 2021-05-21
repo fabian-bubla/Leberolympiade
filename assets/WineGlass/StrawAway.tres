@@ -23,3 +23,15 @@ tracks/1/keys = {
 "points": PoolRealArray( 32, -0.25, 0, 0.138778, -0.198807, -50.5837, -0.0126498, 44.2065, 0.53136, 0, 32, -0.0170529, -36.3678, 0.25, 0 ),
 "times": PoolRealArray( 0, 0.2, 0.7 )
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("HitSFX:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}

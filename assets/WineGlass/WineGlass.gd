@@ -73,6 +73,7 @@ var Controls = [
 func _ready():
 	GameEvents.connect("block_all_players_input", self,"_on_block_all_players_input")
 	GameEvents.connect("attack_launched", self, "_on_attack_launched")
+	GameEvents.connect("game_won", self, "_on_game_won")
 	randomize()
 	generate_arrow_presses()
 	modulate_all_assets(player_color_dict[player_color_key])
@@ -157,10 +158,7 @@ func increment():
 
 func win():
 	GameEvents.emit_signal("block_all_players_input")
-	
-	print('biggest. combo: ' + str(biggest_combo_counter),
-	'atk counter' + str (attack_counter),
-	'mistake counter' + str(mistakes_counter))
+	GameEvents.emit_signal("game_won")
 	
 #	$WinDisplay.win_display(biggest_combo_counter,attack_counter,mistakes_counter)
 	is_winner = true
@@ -173,6 +171,8 @@ func win():
 #	get_tree().change_scene('res://assets/StartScreen/StartScreen.tscn')
 	pass
 
+func _on_game_won():
+	pass
 func generate_arrow_presses():
 	while Input_left.size() < Stats.max_score * 5:
 		var new_num = randi() % 4
