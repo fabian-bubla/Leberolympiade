@@ -37,21 +37,25 @@ region_rect = Rect2( 0, 0, 48, 52 )
 
 [node name="Arrows" parent="." instance=ExtResource( 3 )]
 
-[node name="ArrowLeft" parent="Arrows" index="0"]
+[node name="ArrowRight" parent="Arrows" index="0"]
 visible = true
 position = Vector2( 1, -76 )
+frame = 0
 
-[node name="ArrowRight" parent="Arrows" index="1"]
+[node name="ArrowLeft" parent="Arrows" index="1"]
 visible = true
 position = Vector2( 1, -76 )
+frame = 1
 
-[node name="ArrowUp" parent="Arrows" index="2"]
+[node name="ArrowDown" parent="Arrows" index="2"]
 visible = true
 position = Vector2( 1, -76 )
+frame = 0
 
-[node name="ArrowDown" parent="Arrows" index="3"]
+[node name="ArrowUp" parent="Arrows" index="3"]
 visible = true
 position = Vector2( 1, -76 )
+frame = 1
 
 [node name="WinTimer" type="Timer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/WineGlass/WineRed_01.png" type="Texture" id=4]
 [ext_resource path="res://assets/WineGlass/WineGlass.gd" type="Script" id=5]
 [ext_resource path="res://assets/WineGlass/ColorReference01.png" type="Texture" id=6]
+[ext_resource path="res://assets/Hands/Hands01.png" type="Texture" id=7]
+[ext_resource path="res://assets/Hands/HandSprite.gd" type="Script" id=8]
 
 [node name="WineGlass" type="Node2D"]
 script = ExtResource( 5 )
@@ -60,18 +62,22 @@ rotation = 3.14159
 
 [node name="ArrowRight" parent="Arrows" index="0"]
 visible = true
-frame = 0
 
 [node name="ArrowLeft" parent="Arrows" index="1"]
 visible = true
-frame = 1
 
 [node name="ArrowDown" parent="Arrows" index="2"]
 visible = true
-frame = 0
 
 [node name="ArrowUp" parent="Arrows" index="3"]
 visible = true
-frame = 1
+
+[node name="HandSprite" type="Sprite" parent="." groups=[
+"HandSprites",
+]]
+texture = ExtResource( 7 )
+hframes = 5
+vframes = 3
+script = ExtResource( 8 )
 
 [editable path="Arrows"]
