@@ -8,6 +8,8 @@ var current_score = 0
 var max_score = Stats.max_score #add that to some singleton
 var inverted_flag = false
 var combo_meter = 0 setget set_combo_meter
+var total_combo = 0
+
 
 var wine_fill_value: float = 9.0
 export (int) var Control_Scheme = 0
@@ -113,7 +115,7 @@ func _process(_delta):
 					pass
 	
 	if Input.is_action_just_pressed(int_button_dict.values()[4]):
-		if combo_meter >= 5:
+		if combo_meter >= combo_attack_threshhold:
 			GameEvents.emit_signal("attack_launched", self)
 			set_combo_meter(true)
 			pass
@@ -205,7 +207,39 @@ func set_combo_meter(reset=false):
 	else:
 		combo_meter += 1
 		$ComboMeter.text = str(combo_meter)
+	
+	set_lime_sprite()
+	
+	if combo_meter >= total_combo:
+		total_combo = combo_meter
 
+func set_lime_sprite():
+	var show_frame = 0
+	if combo_attack_threshhold == '5':
+		if combo_meter == 2:
+			show_frame = 1
+		if combo_meter == 3:
+			show_frame = 2
+		if combo_meter == 4:
+			show_frame = 3
+		if combo_meter >= 5:
+			show_frame = 4
+			
+	if combo_attack_threshhold == '10':
+		if combo_meter == 4:
+			show_frame = 1
+		if combo_meter == 6:
+			show_frame = 2
+		if combo_meter == 8:
+			show_frame = 3
+		if combo_meter >= 10:
+			show_frame = 4
+	
+	$LimeSprite.frame = show_frame
+	
+		
+			
+	$LimeSprite.
 func modulate_all_assets(color_code):
 	#xSprite
 	$xSprite.set_modulate(Color(color_code))
