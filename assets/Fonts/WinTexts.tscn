@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/WineGlass/WinDisplay.gd" type="Script" id=1]
+[ext_resource path="res://assets/Fonts/GameFont.tres" type="DynamicFont" id=2]
+
+[node name="WinTexts" type="Node2D"]
+
+[node name="WinDisplay" type="Control" parent="." groups=[
+"WinDisplays",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LongestCombo" type="Label" parent="WinDisplay"]
+margin_left = 80.0
+margin_right = 240.0
+margin_bottom = 26.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.192157, 0.117647, 0.0313726, 1 )
+text = "Longest Combo"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Attacks" type="Label" parent="WinDisplay"]
+margin_left = 80.0
+margin_top = 40.0
+margin_right = 240.0
+margin_bottom = 66.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.192157, 0.117647, 0.0313726, 1 )
+text = "Attacks"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mistakes" type="Label" parent="WinDisplay"]
+margin_left = 80.0
+margin_top = 80.0
+margin_right = 240.0
+margin_bottom = 106.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.192157, 0.117647, 0.0313726, 1 )
+text = "Mistakes"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
