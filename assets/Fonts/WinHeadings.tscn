@@ -1,21 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://assets/WineGlass/WinDisplay.gd" type="Script" id=1]
 [ext_resource path="res://assets/Fonts/GameFont.tres" type="DynamicFont" id=2]
 
-[node name="WinTexts" type="Node2D"]
-
-[node name="WinDisplay" type="Control" parent="." groups=[
-"WinDisplays",
-]]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 1 )
+[node name="WinHeadings" type="Control"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LongestCombo" type="Label" parent="WinDisplay"]
+[node name="LongestCombo" type="Label" parent="."]
 margin_left = 80.0
 margin_right = 240.0
 margin_bottom = 26.0
@@ -28,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Attacks" type="Label" parent="WinDisplay"]
+[node name="Attacks" type="Label" parent="."]
 margin_left = 80.0
 margin_top = 40.0
 margin_right = 240.0
@@ -42,7 +34,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Mistakes" type="Label" parent="WinDisplay"]
+[node name="Mistakes" type="Label" parent="."]
 margin_left = 80.0
 margin_top = 80.0
 margin_right = 240.0

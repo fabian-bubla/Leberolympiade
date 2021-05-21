@@ -172,6 +172,13 @@ func win():
 	pass
 
 func _on_game_won():
+	$Glass.visible = false
+	$LimeSprite.visible = false
+	$xSprite.visible = false
+	$Straw.visible = false
+	$Wine.visible = false
+	$GlassTransparent01.visible = false
+	$Arrows.visible = false
 	pass
 func generate_arrow_presses():
 	while Input_left.size() < Stats.max_score * 5:

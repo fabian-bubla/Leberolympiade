@@ -32,7 +32,6 @@ visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
-frame = 2
 playing = true
 
 [node name="Straw" type="Sprite" parent="."]
