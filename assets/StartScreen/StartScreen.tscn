@@ -32,7 +32,6 @@ __meta__ = {
 stream = ExtResource( 2 )
 volume_db = -80.0
 pitch_scale = 0.78
-autoplay = true
 
 [node name="Tween" type="Tween" parent="."]
 

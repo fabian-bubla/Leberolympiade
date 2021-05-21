@@ -15,7 +15,7 @@ export var combo_attack_threshhold = 5
 export var player_color_key = 0
 export var drink_alpha = 'cc'
 var input_blocked = false
-
+var block_prompt = false
 var player_color_dict = {
 	0: "6e0022",
 	1: "f6f392",
@@ -30,24 +30,32 @@ var Controls = [
 	1: "ui_right",
 	2: "ui_up",
 	3: "ui_down",
+	4: "ui_attack",
+	5: "ui_block",
 	},
 	{
 	0: "button_left",
 	1: "button_right",
 	2: "button_up",
 	3: "button_down",
+	4: "button_attack",
+	5: "button_block",
 	},
 	{
 	0: "1ui_left",
 	1: "1ui_right",
 	2: "1ui_up",
 	3: "1ui_down",
+	4: "1ui_attack",
+	5: "1ui_block",
 	},
 	{
 	0: "1button_left",
 	1: "1button_right",
 	2: "1button_up",
 	3: "1button_down",
+	4: "1button_attack",
+	5: "1button_block",
 	}
 ]
 
@@ -55,6 +63,7 @@ var Controls = [
 
 func _ready():
 	GameEvents.connect("block_all_players_input", self,"_on_block_all_players_input")
+	GameEvents.connect("attack_launched", self, "_on_attack_launched")
 	randomize()
 	generate_arrow_presses()
 	modulate_all_assets(player_color_dict[player_color_key])
@@ -65,14 +74,29 @@ func _ready():
 		
 
 func _process(_delta):
+	
+	if block_prompt:
+		if Input.is_action_just_pressed('blockPLACEHOLDER'):
+			pass
+			#remove block prompt
+			#block_prompt = false
+		else:
+			for i in int_button_dict.values().slice(0,-2):#IDEA IS THAT any other button than block! RECHCECK
+				if Input.is_action_just_pressed(i):
+					pass
+					#punish player
+					#remove block_prompt
+		
 	#LEFT CHECK
-	if !input_blocked:
+	elif !input_blocked:
 		#IS the Input pressed for the left side?
-		for i in int_button_dict.values():
+		for i in int_button_dict.values().slice(0,-2): #for all buttons but last, so attack button
+
 			#which of the buttons of the left side where pressed iterate
 			if Input.is_action_just_pressed(i):
 				var next_press = int_button_dict[Input_left[0]]
 				#is the next necessary press among them then:
+				
 				if Input.is_action_just_pressed(next_press):
 					input_accomplished.append(Input_left.pop_front())
 					increment()
@@ -81,6 +105,11 @@ func _process(_delta):
 					you_pressed_wrong_button()
 					pass
 	
+	if Input.is_action_just_pressed(int_button_dict.values()[4]):
+		if combo_meter > 5:
+			GameEvents.emit_signal("attack_launched", self)
+			pass
+		pass
 	#interpolate amount of wine in Glass each frame
 	$Tween.interpolate_property($Wine, 'margin_bottom', $Wine.margin_bottom,wine_fill_value,0.1,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
@@ -178,4 +207,15 @@ func modulate_all_assets(color_code):
 
 func _on_block_all_players_input():
 	self.input_blocked = true
+	pass
+
+func _on_attack_launched(who):
+	if who == self:
+		pass #do nothing
+	else:
+		queue_block_prompt()
+
+func queue_block_prompt():
+	block_prompt = true
+	block_prompt.visible = true
 	pass
