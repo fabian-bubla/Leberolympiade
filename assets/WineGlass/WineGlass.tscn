@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -15,6 +15,22 @@
 [ext_resource path="res://assets/WineGlass/WinDisplay.gd" type="Script" id=13]
 [ext_resource path="res://assets/WineGlass/Limette01.png" type="Texture" id=14]
 [ext_resource path="res://assets/Fonts/NumbersFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://assets/SFX/HitSFX.wav" type="AudioStream" id=16]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [node name="WineGlass" type="Node2D" groups=["WineGlasses"]]
 script = ExtResource( 5 )
@@ -30,11 +46,10 @@ visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
-frame = 1
 playing = true
 
 [node name="Straw" type="Sprite" parent="."]
-position = Vector2( 15, -161 )
+position = Vector2( 15, -163 )
 texture = ExtResource( 9 )
 
 [node name="Wine" type="Control" parent="."]
@@ -90,6 +105,7 @@ vframes = 6
 script = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
 anims/StrawAway = ExtResource( 11 )
 anims/StrawIn = ExtResource( 12 )
 
@@ -147,5 +163,8 @@ margin_right = 107.0
 margin_bottom = -27.0
 text = "asdfa"
 align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
 
 [connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]

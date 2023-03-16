@@ -35,7 +35,7 @@ var names = [
 	'4-Leaf Clover',
 	'Poto\'Gold',
 	'Snäk',
-	'Dirtwater',
+	'Irish Dirtwater',
 	'Der Jonas',
 	'Bird',
 	'9.8m/s² Sword',

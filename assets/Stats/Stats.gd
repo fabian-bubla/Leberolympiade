@@ -1,7 +1,7 @@
 extends Node
 
 
-var max_score = 2
+var max_score = 10
 var Sprite_idx_list = range(0,17)
 var Sprite_idx_already_in_use = []
 var win_list = []

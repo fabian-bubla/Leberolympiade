@@ -12,4 +12,7 @@ func play_random_shout():
 	$Shouts.get_child(rnd_child).play()
 	
 func play_win_sfx():
-	$WinSFX.play()
+	$WinSFX.play(0.0)
+
+func mute_win_sfx():
+	$WinSFX.stop()

@@ -1,11 +1,35 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/StartScreen/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/Music/Menu.ogg" type="AudioStream" id=2]
-[ext_resource path="res://assets/StartScreen/Logo.png" type="Texture" id=3]
+[ext_resource path="res://assets/StartScreen/StartScreen_Logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/BG/BG02.png" type="Texture" id=4]
-[ext_resource path="res://assets/StartScreen/BottlesBG.png" type="Texture" id=5]
-[ext_resource path="res://assets/StartScreen/Grape-Off.gd" type="Script" id=6]
+[ext_resource path="res://assets/StartScreen/StartScreen_Bottles.png" type="Texture" id=5]
+[ext_resource path="res://assets/StartScreen/DuellButton.gd" type="Script" id=6]
+[ext_resource path="res://assets/StartScreen/Buttons/Duell03.png" type="Texture" id=7]
+[ext_resource path="res://assets/StartScreen/Buttons/Duell01.png" type="Texture" id=8]
+[ext_resource path="res://assets/StartScreen/Buttons/Duell02.png" type="Texture" id=9]
+[ext_resource path="res://assets/StartScreen/Buttons/Party02.png" type="Texture" id=10]
+[ext_resource path="res://assets/StartScreen/Buttons/Party03.png" type="Texture" id=11]
+[ext_resource path="res://assets/StartScreen/Buttons/Party01.png" type="Texture" id=12]
+[ext_resource path="res://assets/StartScreen/PartyButton.gd" type="Script" id=13]
+[ext_resource path="res://assets/StartScreen/StartScreen_Irish.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
 
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,40 +38,57 @@ script = ExtResource( 1 )
 position = Vector2( 160, 90 )
 texture = ExtResource( 4 )
 
+[node name="IrishStuff" type="Sprite" parent="."]
+position = Vector2( 160, 90 )
+texture = ExtResource( 14 )
+
 [node name="BottlesBG" type="Sprite" parent="."]
-position = Vector2( 159.044, 90.1379 )
+position = Vector2( 160, 90 )
 texture = ExtResource( 5 )
 
 [node name="Logo" type="Sprite" parent="."]
-position = Vector2( 159.515, 100.995 )
+position = Vector2( 160, 90 )
 texture = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2( 43.2397, 139.095 )
 
-[node name="Grape-Off" type="Button" parent="Node2D"]
-margin_right = 74.0
-margin_bottom = 20.0
+[node name="Duell" type="Button" parent="Node2D"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 15.0
+margin_top = -8.0
+margin_right = 61.0
+margin_bottom = 12.0
 focus_neighbour_left = NodePath(".")
-focus_neighbour_right = NodePath("../../Node2D2/Gang Grape")
-focus_next = NodePath("../../Node2D2/Gang Grape")
-focus_previous = NodePath("../../Node2D2/Gang Grape")
+focus_neighbour_right = NodePath("../../Node2D2/Party")
+focus_next = NodePath("../../Node2D2/Party")
+focus_previous = NodePath("../../Node2D2/Party")
 text = "Duell"
 script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/Duell"]
+position = Vector2( 25.7603, 10.905 )
+frames = SubResource( 1 )
+frame = 2
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 197.254, 138.349 )
 
-[node name="Gang Grape" type="Button" parent="Node2D2"]
-margin_right = 72.0
-margin_bottom = 20.0
-focus_neighbour_left = NodePath("../../Node2D/Grape-Off")
-focus_next = NodePath("../../Node2D/Grape-Off")
-focus_previous = NodePath("../../Node2D/Grape-Off")
+[node name="Party" type="Button" parent="Node2D2"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = -6.254
+margin_top = -8.349
+margin_right = 65.746
+margin_bottom = 11.651
+focus_neighbour_left = NodePath("../../Node2D/Duell")
+focus_next = NodePath("../../Node2D/Duell")
+focus_previous = NodePath("../../Node2D/Duell")
 text = "Party"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D2/Party"]
+position = Vector2( 45, 13 )
+frames = SubResource( 2 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -55,5 +96,9 @@ bus = "MenuMusic"
 
 [node name="Tween" type="Tween" parent="."]
 
-[connection signal="pressed" from="Node2D/Grape-Off" to="." method="_on_Duell_pressed"]
-[connection signal="pressed" from="Node2D2/Gang Grape" to="." method="_on_ganGrape_pressed"]
+[connection signal="focus_entered" from="Node2D/Duell" to="Node2D/Duell" method="_on_GrapeOff_focus_entered"]
+[connection signal="focus_exited" from="Node2D/Duell" to="Node2D/Duell" method="_on_GrapeOff_focus_exited"]
+[connection signal="pressed" from="Node2D/Duell" to="." method="_on_Duell_pressed"]
+[connection signal="focus_entered" from="Node2D2/Party" to="Node2D2/Party" method="_on_Party_focus_entered"]
+[connection signal="focus_exited" from="Node2D2/Party" to="Node2D2/Party" method="_on_Party_focus_exited"]
+[connection signal="pressed" from="Node2D2/Party" to="." method="_on_Party_pressed"]
