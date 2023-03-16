@@ -15,7 +15,7 @@ position = Vector2( 160, 90 )
 texture = ExtResource( 4 )
 
 [node name="BottlesBG" type="Sprite" parent="."]
-position = Vector2( 158.099, 92.0278 )
+position = Vector2( 159.044, 90.1379 )
 texture = ExtResource( 5 )
 
 [node name="Logo" type="Sprite" parent="."]
@@ -26,17 +26,14 @@ texture = ExtResource( 3 )
 position = Vector2( 43.2397, 139.095 )
 
 [node name="Grape-Off" type="Button" parent="Node2D"]
-margin_right = 42.0
+margin_right = 74.0
 margin_bottom = 20.0
 focus_neighbour_left = NodePath(".")
 focus_neighbour_right = NodePath("../../Node2D2/Gang Grape")
 focus_next = NodePath("../../Node2D2/Gang Grape")
 focus_previous = NodePath("../../Node2D2/Gang Grape")
-text = "Grape-Off"
+text = "Duell"
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 197.254, 138.349 )
@@ -47,7 +44,7 @@ margin_bottom = 20.0
 focus_neighbour_left = NodePath("../../Node2D/Grape-Off")
 focus_next = NodePath("../../Node2D/Grape-Off")
 focus_previous = NodePath("../../Node2D/Grape-Off")
-text = "Gang Grape"
+text = "Party"
 __meta__ = {
 "_edit_use_anchors_": false
 }

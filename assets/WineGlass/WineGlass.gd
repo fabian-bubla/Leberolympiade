@@ -1,5 +1,8 @@
 extends Node2D
 
+var start_screen = "res://assets/StartScreen/StartScreen.tscn"
+var round_over = false
+
 export var controller_id = 0
 
 var Input_left = []
@@ -79,6 +82,8 @@ func _ready():
 	modulate_all_assets(player_color_dict[player_color_key])
 	hide_all_arrows()
 	display_correct_arrow()
+	display_name()
+	mirror_hand()
 	pass
 
 
@@ -86,7 +91,11 @@ func _ready():
 
 func _process(_delta):
 	
-	if block_prompt:
+	if round_over:
+		if Input.is_action_just_pressed(int_button_dict[4]):
+			get_tree().change_scene(start_screen)
+	
+	elif block_prompt:
 		if Input.is_action_just_pressed(int_button_dict.values()[-1]):
 			pass
 			block_prompt = false
@@ -106,11 +115,14 @@ func _process(_delta):
 		
 	#LEFT CHECK
 	elif !input_blocked:
+#		print(input_not_diagonal())
+#		if input_not_diagonal():
 		#IS the Input pressed for the left side?
 		for i in int_button_dict.values().slice(0,-3): #for all buttons but last, so attack button
-
+			
 			#which of the buttons of the left side where pressed iterate
 			if Input.is_action_just_pressed(i):
+				print(i)
 				var next_press = int_button_dict[Input_left[0]]
 				#is the next necessary press among them then:
 				
@@ -133,6 +145,22 @@ func _process(_delta):
 	$Tween.interpolate_property($Wine, 'margin_bottom', $Wine.margin_bottom,wine_fill_value,0.1,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
 
+func input_not_diagonal():
+	var direction = Vector2(Input.get_action_strength(Controls[0][1]) - Input.get_action_strength(Controls[0][0]),
+			Input.get_action_strength(Controls[0][3]) - Input.get_action_strength(Controls[0][2]))
+	if direction.length() > 1:
+		return false
+	else:
+		return true
+		
+func display_name():
+	$Label.text = $HandSprite.names[$HandSprite.frame]
+	if Control_Scheme % 2 != 0:
+		$Label.rect_position.y += 20
+		
+func mirror_hand():
+	if Control_Scheme > 1:
+		$HandSprite.scale.x = -1
 
 func increment():
 	set_combo_meter()
@@ -180,7 +208,14 @@ func _on_game_won():
 	$Wine.visible = false
 	$GlassTransparent01.visible = false
 	$Arrows.visible = false
-	pass
+	
+	$WinTimer.wait_time = 5
+	$WinTimer.autostart = true
+	get_tree().get_root().gui_disable_input = true
+	
+	
+	
+	
 func generate_arrow_presses():
 	while Input_left.size() < Stats.max_score * 5:
 		var new_num = randi() % 4
@@ -304,3 +339,9 @@ func punish_player():
 	pass
 
 
+
+
+func _on_WinTimer_timeout():
+	get_tree().get_root().gui_disable_input = false
+	print('What the heckey?')
+	GameEvents.emit_signal("enable_continue")
