@@ -46,6 +46,7 @@ visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
+frame = 2
 playing = true
 
 [node name="Straw" type="Sprite" parent="."]
@@ -157,6 +158,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -107.0
 margin_top = -41.0
 margin_right = 107.0

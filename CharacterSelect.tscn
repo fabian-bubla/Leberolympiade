@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://CharacterSelect.gd" type="Script" id=1]
+[ext_resource path="res://assets/BG/BG02.png" type="Texture" id=2]
+[ext_resource path="res://HandSprite.tscn" type="PackedScene" id=5]
+
+[node name="CharacterSelect" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 160, 90 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Duel" type="Node2D" parent="."]
+
+[node name="HandSprite0" parent="Duel" instance=ExtResource( 5 )]
+position = Vector2( 108, 152 )
+
+[node name="HandSprite1" parent="Duel" instance=ExtResource( 5 )]
+position = Vector2( 212, 152 )
+Control_Scheme = 1
+
+[node name="Party" type="Node2D" parent="."]
+visible = false
+
+[node name="HandSprite0" parent="Party" instance=ExtResource( 5 )]
+position = Vector2( 64, 152 )
+
+[node name="HandSprite1" parent="Party" instance=ExtResource( 5 )]
+position = Vector2( 128, 152 )
+Control_Scheme = 1
+
+[node name="HandSprite2" parent="Party" instance=ExtResource( 5 )]
+position = Vector2( 192, 152 )
+Control_Scheme = 2
+
+[node name="HandSprite3" parent="Party" instance=ExtResource( 5 )]
+position = Vector2( 256, 152 )
+Control_Scheme = 3
+
+[node name="Label" type="Label" parent="."]
+margin_left = 93.0
+margin_top = 16.0
+margin_right = 232.0
+margin_bottom = 30.0
+text = "Select your Character!"

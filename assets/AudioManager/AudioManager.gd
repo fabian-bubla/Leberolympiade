@@ -16,3 +16,9 @@ func play_win_sfx():
 
 func mute_win_sfx():
 	$WinSFX.stop()
+	
+func play_music():
+	$Music.play(0.0)
+	
+func stop_music():
+	$Music.stop()

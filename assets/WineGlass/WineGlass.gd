@@ -83,7 +83,7 @@ func _ready():
 	hide_all_arrows()
 	display_correct_arrow()
 	display_name()
-	mirror_hand()
+#	mirror_hand()
 	pass
 
 
@@ -144,6 +144,11 @@ func _process(_delta):
 	#interpolate amount of wine in Glass each frame
 	$Tween.interpolate_property($Wine, 'margin_bottom', $Wine.margin_bottom,wine_fill_value,0.1,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
+	
+
+	
+	
+	
 
 func input_not_diagonal():
 	var direction = Vector2(Input.get_action_strength(Controls[0][1]) - Input.get_action_strength(Controls[0][0]),
@@ -242,7 +247,7 @@ func invert():
 
 func you_pressed_wrong_button():
 	mistakes_counter +=1
-	AudioManager.play_random_shout()
+#	AudioManager.play_random_shout()
 	
 	$BlockTimer.start()
 	input_blocked = true

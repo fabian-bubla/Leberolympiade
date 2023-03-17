@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/StartScreen/StartScreen.gd" type="Script" id=1]
 [ext_resource path="res://assets/Music/Menu.ogg" type="AudioStream" id=2]
@@ -14,10 +14,21 @@
 [ext_resource path="res://assets/StartScreen/Buttons/Party01.png" type="Texture" id=12]
 [ext_resource path="res://assets/StartScreen/PartyButton.gd" type="Script" id=13]
 [ext_resource path="res://assets/StartScreen/StartScreen_Irish.png" type="Texture" id=14]
+[ext_resource path="res://assets/StartScreen/Buttons/Underline00.png" type="Texture" id=15]
+[ext_resource path="res://assets/StartScreen/Buttons/Underline02.png" type="Texture" id=16]
+[ext_resource path="res://assets/StartScreen/Buttons/Underline01.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "default",
 "speed": 6.0
@@ -67,9 +78,16 @@ text = "Duell"
 script = ExtResource( 6 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/Duell"]
-position = Vector2( 25.7603, 10.905 )
+position = Vector2( 26, 11 )
 frames = SubResource( 1 )
 frame = 2
+
+[node name="Underline" type="AnimatedSprite" parent="Node2D/Duell"]
+visible = false
+position = Vector2( 24.7603, 30.905 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
 
 [node name="Node2D2" type="Node2D" parent="."]
 position = Vector2( 197.254, 138.349 )
@@ -87,8 +105,14 @@ text = "Party"
 script = ExtResource( 13 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D2/Party"]
-position = Vector2( 45, 13 )
+position = Vector2( 46, 13 )
 frames = SubResource( 2 )
+
+[node name="Underline" type="AnimatedSprite" parent="Node2D2/Party"]
+visible = false
+position = Vector2( 45, 32 )
+frames = SubResource( 3 )
+playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )

@@ -1,10 +1,14 @@
 extends Node
 
+var player_number = 0
 
-var max_score = 10
+var max_score = 30
 var Sprite_idx_list = range(0,17)
 var Sprite_idx_already_in_use = []
 var win_list = []
+
+var selected_characters = [0,0,0,0]
+
 func _ready():
 	print(Sprite_idx_list)
 	pass
