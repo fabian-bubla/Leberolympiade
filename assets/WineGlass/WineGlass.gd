@@ -248,6 +248,7 @@ func invert():
 func you_pressed_wrong_button():
 	mistakes_counter +=1
 #	AudioManager.play_random_shout()
+	$FailSFX.play()
 	
 	$BlockTimer.start()
 	input_blocked = true

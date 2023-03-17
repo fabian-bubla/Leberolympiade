@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/BG/BG02.png" type="Texture" id=1]
-[ext_resource path="res://assets/Music/Battle.ogg" type="AudioStream" id=2]
+[ext_resource path="res://assets/Music/BattleNew.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/WineGlass/WineGlass.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/BG/Grapes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Scene_Settings.gd" type="Script" id=5]

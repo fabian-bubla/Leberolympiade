@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://assets/WineGlass/Limette01.png" type="Texture" id=14]
 [ext_resource path="res://assets/Fonts/NumbersFont.tres" type="DynamicFont" id=15]
 [ext_resource path="res://assets/SFX/HitSFX.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/SFX/FailSFX.ogg" type="AudioStream" id=17]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -46,7 +47,7 @@ visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Straw" type="Sprite" parent="."]
@@ -168,5 +169,8 @@ align = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+
+[node name="FailSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
 
 [connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]
