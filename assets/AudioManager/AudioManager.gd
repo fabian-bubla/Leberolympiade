@@ -5,11 +5,11 @@ extends Node
 func _ready():
 	pass # Replace with function body.
 
-func play_random_shout():
-	randomize()
-	var nr_chldr = $Shouts.get_child_count()
-	var rnd_child = randi() % nr_chldr
-	$Shouts.get_child(rnd_child).play()
+#func play_random_shout():
+#	randomize()
+#	var nr_chldr = $Shouts.get_child_count()
+#	var rnd_child = randi() % nr_chldr
+#	$Shouts.get_child(rnd_child).play()
 	
 	
 func play_win_sfx():

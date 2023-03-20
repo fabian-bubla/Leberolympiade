@@ -333,7 +333,7 @@ func queue_block_prompt():
 
 func punish_player():
 	mistakes_counter +=1
-	AudioManager.play_random_shout()
+#	AudioManager.play_random_shout()
 	var punishment_value = 1
 	set_combo_meter(true)
 	if !inverted_flag:
