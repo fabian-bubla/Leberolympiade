@@ -115,6 +115,7 @@ func _process(_delta):
 		
 	#LEFT CHECK
 	elif !input_blocked:
+		if is_multiple_pressed(): return
 #		print(input_not_diagonal())
 #		if input_not_diagonal():
 		#IS the Input pressed for the left side?
@@ -122,7 +123,6 @@ func _process(_delta):
 			
 			#which of the buttons of the left side where pressed iterate
 			if Input.is_action_just_pressed(i):
-				print(i)
 				var next_press = int_button_dict[Input_left[0]]
 				#is the next necessary press among them then:
 				
@@ -150,13 +150,13 @@ func _process(_delta):
 	
 	
 
-func input_not_diagonal():
+func is_multiple_pressed():
 	var direction = Vector2(Input.get_action_strength(Controls[0][1]) - Input.get_action_strength(Controls[0][0]),
 			Input.get_action_strength(Controls[0][3]) - Input.get_action_strength(Controls[0][2]))
 	if direction.length() > 1:
-		return false
-	else:
 		return true
+	else:
+		return false
 		
 func display_name():
 	$Label.text = $HandSprite.names[$HandSprite.frame]
