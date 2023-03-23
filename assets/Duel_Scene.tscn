@@ -31,5 +31,3 @@ autoplay = true
 
 [node name="WinScreenTexts" parent="." instance=ExtResource( 6 )]
 visible = false
-
-[editable path="WinScreenTexts"]

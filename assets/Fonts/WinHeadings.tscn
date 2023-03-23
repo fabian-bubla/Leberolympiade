@@ -3,44 +3,35 @@
 [ext_resource path="res://assets/Fonts/GameFont.tres" type="DynamicFont" id=2]
 
 [node name="WinHeadings" type="Control"]
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="LongestCombo" type="Label" parent="."]
 margin_left = 80.0
 margin_right = 240.0
 margin_bottom = 26.0
+custom_colors/font_color = Color( 0.909804, 0.921569, 0.686275, 1 )
 custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.192157, 0.117647, 0.0313726, 1 )
 text = "Longest Combo"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Attacks" type="Label" parent="."]
 margin_left = 80.0
 margin_top = 40.0
 margin_right = 240.0
 margin_bottom = 66.0
+custom_colors/font_color = Color( 0.909804, 0.921569, 0.686275, 1 )
 custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.192157, 0.117647, 0.0313726, 1 )
 text = "Attacks"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Mistakes" type="Label" parent="."]
 margin_left = 80.0
 margin_top = 80.0
 margin_right = 240.0
 margin_bottom = 106.0
+custom_colors/font_color = Color( 0.909804, 0.921569, 0.686275, 1 )
 custom_fonts/font = ExtResource( 2 )
-custom_colors/font_color = Color( 0.192157, 0.117647, 0.0313726, 1 )
 text = "Mistakes"
 align = 1
 valign = 1

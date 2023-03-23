@@ -19,8 +19,6 @@ var attack_counter = 0
 var mistakes_counter = 0
 #var is_winner = false
 
-
-
 var wine_fill_value: float = 9.0
 export (int) var Control_Scheme = 0
 export var combo_attack_threshhold = 5
@@ -71,8 +69,6 @@ var Controls = [
 	}
 ]
 
-
-
 func _ready():
 # warning-ignore:return_value_discarded
 	GameEvents.connect("block_all_players_input", self,"_on_block_all_players_input")
@@ -86,7 +82,6 @@ func _ready():
 	hide_all_arrows()
 	display_correct_arrow()
 	mirror_hand()
-	pass
 
 
 		
@@ -101,7 +96,6 @@ func _process(_delta):
 	
 	elif block_prompt:
 		if Input.is_action_just_pressed(int_button_dict.values()[-1]):
-			pass
 			block_prompt = false
 			$AnimationPlayer.play("StrawAway")
 #			$BlockPrompt.visible = false
@@ -112,7 +106,6 @@ func _process(_delta):
 		else:
 			for i in int_button_dict.values().slice(0,-2):#IDEA IS THAT any other button than block! RECHCECK
 				if Input.is_action_just_pressed(i):
-					pass
 					punish_player()
 					#punish player
 					#remove block_prompt
@@ -136,15 +129,12 @@ func _process(_delta):
 	#				GameEvents.emit_signal("point_scored", self)
 				else:#if wrong button! or elif but button still in the button_dict
 					you_pressed_wrong_button()
-					pass
 	
 	if Input.is_action_just_pressed(int_button_dict.values()[4]):
 		if combo_meter >= combo_attack_threshhold:
 			GameEvents.emit_signal("attack_launched", self)
 			set_combo_meter(true)
 			attack_counter += 1
-			pass
-		pass
 	#interpolate amount of wine in Glass each frame
 	$Tween.interpolate_property($Wine, 'margin_bottom', $Wine.margin_bottom,wine_fill_value,0.1,Tween.TRANS_LINEAR,Tween.EASE_IN)
 	$Tween.start()
@@ -182,8 +172,6 @@ func increment():
 #		win()
 	elif current_score == 0 and inverted_flag == true:
 		win()
-#	elif current_score > max_score:
-#		pass
 	else:
 		hide_all_arrows()
 		display_correct_arrow()
@@ -199,12 +187,10 @@ func win():
 	for member in get_tree().get_nodes_in_group("WinDisplays"):
 		member.win_display()
 		
-	$HandSprite.position.y -= 10
+	$HandSprite.position.y -= 20
 
 	$WinTimer.start()
 	yield($WinTimer,"timeout")
-#	get_tree().change_scene('res://assets/StartScreen/StartScreen.tscn')
-	pass
 
 func _on_game_won():
 	$Glass.visible = false
@@ -238,13 +224,11 @@ func hide_all_arrows():
 func display_correct_arrow():
 	var arrow_list = $Arrows.get_children()
 	arrow_list[input_left[0]].visible = true
-	pass
 
 func invert():
 	inverted_flag = true
 #	input_accomplished.invert()
 #	input_left = input_accomplished
-	pass
 
 func you_pressed_wrong_button():
 	mistakes_counter +=1
@@ -262,7 +246,6 @@ func you_pressed_wrong_button():
 	set_combo_meter(true)
 	input_blocked = false
 	$xSprite.visible = false
-	pass
 
 func set_combo_meter(reset=false):
 	if reset == true:
@@ -313,11 +296,9 @@ func modulate_all_assets(color_code):
 	#ComboMeter
 #	$ComboMeter.set_modulate(Color(color_code))
 #	print(color_code)
-	pass
 
 func _on_block_all_players_input():
 	self.input_blocked = true
-	pass
 
 func _on_attack_launched(who):
 	if who == self:
@@ -345,8 +326,7 @@ func punish_player():
 	else:
 		current_score = current_score + punishment_value
 		
-	wine_fill_value = 9 + 62 /max_score * abs(current_score) 
-	pass
+	wine_fill_value = 9 + 62 /max_score * abs(current_score)
 
 
 

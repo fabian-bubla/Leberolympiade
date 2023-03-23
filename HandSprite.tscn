@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://CharSelector.gd" type="Script" id=1]
 [ext_resource path="res://assets/Hands/Hands01.png" type="Texture" id=2]
+[ext_resource path="res://assets/Fonts/NumbersFont.tres" type="DynamicFont" id=3]
 
 [node name="HandSprite" type="Sprite"]
 texture = ExtResource( 2 )
@@ -14,5 +15,12 @@ margin_left = -107.0
 margin_top = -83.0
 margin_right = 107.0
 margin_bottom = -69.0
+custom_colors/font_color = Color( 0.909804, 0.921569, 0.686275, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "asdfa"
 align = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

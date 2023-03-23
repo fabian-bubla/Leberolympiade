@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://CharacterSelect.gd" type="Script" id=1]
+[ext_resource path="res://CharacterSelect02.gd" type="Script" id=1]
 [ext_resource path="res://assets/BG/BG02.png" type="Texture" id=2]
-[ext_resource path="res://HandSprite.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/Fonts/GameFont.tres" type="DynamicFont" id=3]
 
 [node name="CharacterSelect" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,36 +14,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Duel" type="Node2D" parent="."]
-
-[node name="HandSprite0" parent="Duel" instance=ExtResource( 5 )]
-position = Vector2( 108, 152 )
-
-[node name="HandSprite1" parent="Duel" instance=ExtResource( 5 )]
-position = Vector2( 212, 152 )
-Control_Scheme = 1
-
-[node name="Party" type="Node2D" parent="."]
-visible = false
-
-[node name="HandSprite0" parent="Party" instance=ExtResource( 5 )]
-position = Vector2( 64, 152 )
-
-[node name="HandSprite1" parent="Party" instance=ExtResource( 5 )]
-position = Vector2( 128, 152 )
-Control_Scheme = 1
-
-[node name="HandSprite2" parent="Party" instance=ExtResource( 5 )]
-position = Vector2( 192, 152 )
-Control_Scheme = 2
-
-[node name="HandSprite3" parent="Party" instance=ExtResource( 5 )]
-position = Vector2( 256, 152 )
-Control_Scheme = 3
+[node name="Characters" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="."]
-margin_left = 93.0
-margin_top = 16.0
-margin_right = 232.0
-margin_bottom = 30.0
+margin_left = 74.0
+margin_top = 9.0
+margin_right = 252.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.909804, 0.921569, 0.686275, 1 )
+custom_fonts/font = ExtResource( 3 )
 text = "Select your Character!"

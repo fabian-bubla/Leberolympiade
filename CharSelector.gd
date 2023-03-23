@@ -1,6 +1,5 @@
 extends Sprite
 
-export var controller_id = 0
 
 onready var char_name = $Label
 
@@ -91,13 +90,11 @@ onready var names = [
 
 
 func _ready():
-#	print(char_name)
-	char_name.text = names[frame]
+	change_name()
 	if Control_Scheme % 2 != 0:
 		char_name.rect_position.y += 20
-#	if Control_Scheme > 1:
-#		self.scale.x = -1
-#		$Label.rect_scale.x = -1
+	if Control_Scheme > (Stats.player_number/2 - 1):
+		self.flip_h = true
 
 func _process(_delta):
 	
@@ -106,14 +103,15 @@ func _process(_delta):
 			frame += hframes * vframes - 1
 		else:
 			self.frame -= 1
-#		print(frame)
+			
 		change_name()
+		
 	if Input.is_action_just_pressed(int_button_dict.values()[1]) and char_unlocked:
 		if self.frame + 1 == hframes * vframes:
 			frame -= hframes * vframes - 1
 		else:
 			self.frame += 1
-#		print(frame)
+			
 		change_name()
 		
 	if Input.is_action_just_pressed(int_button_dict.values()[2]) and char_unlocked:
@@ -121,12 +119,15 @@ func _process(_delta):
 		
 		char_unlocked = false
 		self.position.y -= 10
-		self_modulate = Color("555555")
+		self_modulate = Color("777777")
 		
-		yield(get_tree().create_timer(2.0), "timeout")
-
+#		yield(get_tree().create_timer(2.0), "timeout")
+		#Yield was bad because it created a timer in the tree that still existed when the scene
+		#was changed and all of the HandSprites that created the timers were erased. This threw
+		#an error and would have crashed the game.
 		
-		get_parent().get_parent().all_players_selected()
+		$Timer.start()
+		
 		
 	if Input.is_action_just_pressed(int_button_dict.values()[3]):
 		
@@ -136,6 +137,9 @@ func _process(_delta):
 			self_modulate = Color("ffffff")
 	
 	
-	
 func change_name():
 	char_name.text = names[frame]
+
+
+func _on_Timer_timeout():
+	GameEvents.emit_signal("character_selected")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/StartScreen/StartScreen.gd" type="Script" id=1]
-[ext_resource path="res://assets/Music/Menu.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/StartScreen/StartScreen_Logo.png" type="Texture" id=3]
 [ext_resource path="res://assets/BG/BG02.png" type="Texture" id=4]
 [ext_resource path="res://assets/StartScreen/StartScreen_Bottles.png" type="Texture" id=5]
@@ -45,84 +44,80 @@ animations = [ {
 [node name="StartScreen" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="Background" type="Sprite" parent="."]
+[node name="BG" type="Sprite" parent="."]
+
+[node name="Background" type="Sprite" parent="BG"]
 position = Vector2( 160, 90 )
 texture = ExtResource( 4 )
 
-[node name="IrishStuff" type="Sprite" parent="."]
+[node name="IrishDecoration" type="Sprite" parent="BG"]
 position = Vector2( 160, 90 )
 texture = ExtResource( 14 )
 
-[node name="BottlesBG" type="Sprite" parent="."]
+[node name="Bottles" type="Sprite" parent="BG"]
 position = Vector2( 160, 90 )
 texture = ExtResource( 5 )
 
-[node name="Logo" type="Sprite" parent="."]
+[node name="Logo" type="Sprite" parent="BG"]
 position = Vector2( 160, 90 )
 texture = ExtResource( 3 )
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Duell" type="Node2D" parent="."]
 position = Vector2( 43.2397, 139.095 )
 
-[node name="Duell" type="Button" parent="Node2D"]
+[node name="Duell" type="Button" parent="Duell"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 15.0
 margin_top = -8.0
 margin_right = 61.0
 margin_bottom = 12.0
 focus_neighbour_left = NodePath(".")
-focus_neighbour_right = NodePath("../../Node2D2/Party")
-focus_next = NodePath("../../Node2D2/Party")
-focus_previous = NodePath("../../Node2D2/Party")
+focus_neighbour_right = NodePath("../../Party/Party")
+focus_next = NodePath("../../Party/Party")
+focus_previous = NodePath("../../Party/Party")
 text = "Duell"
 script = ExtResource( 6 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D/Duell"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Duell/Duell"]
 position = Vector2( 26, 11 )
 frames = SubResource( 1 )
 frame = 2
 
-[node name="Underline" type="AnimatedSprite" parent="Node2D/Duell"]
+[node name="Underline" type="AnimatedSprite" parent="Duell/Duell"]
 visible = false
 position = Vector2( 24.7603, 30.905 )
 frames = SubResource( 3 )
 frame = 1
 playing = true
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Party" type="Node2D" parent="."]
 position = Vector2( 197.254, 138.349 )
 
-[node name="Party" type="Button" parent="Node2D2"]
+[node name="Party" type="Button" parent="Party"]
 self_modulate = Color( 1, 1, 1, 0 )
 margin_left = -6.254
 margin_top = -8.349
 margin_right = 65.746
 margin_bottom = 11.651
-focus_neighbour_left = NodePath("../../Node2D/Duell")
-focus_next = NodePath("../../Node2D/Duell")
-focus_previous = NodePath("../../Node2D/Duell")
+focus_neighbour_left = NodePath("../../Duell/Duell")
+focus_next = NodePath("../../Duell/Duell")
+focus_previous = NodePath("../../Duell/Duell")
 text = "Party"
 script = ExtResource( 13 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Node2D2/Party"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Party/Party"]
 position = Vector2( 46, 13 )
 frames = SubResource( 2 )
 
-[node name="Underline" type="AnimatedSprite" parent="Node2D2/Party"]
+[node name="Underline" type="AnimatedSprite" parent="Party/Party"]
 visible = false
 position = Vector2( 45, 32 )
 frames = SubResource( 3 )
 playing = true
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-bus = "MenuMusic"
-
-[node name="Tween" type="Tween" parent="."]
-
-[connection signal="focus_entered" from="Node2D/Duell" to="Node2D/Duell" method="_on_GrapeOff_focus_entered"]
-[connection signal="focus_exited" from="Node2D/Duell" to="Node2D/Duell" method="_on_GrapeOff_focus_exited"]
-[connection signal="pressed" from="Node2D/Duell" to="." method="_on_Duell_pressed"]
-[connection signal="focus_entered" from="Node2D2/Party" to="Node2D2/Party" method="_on_Party_focus_entered"]
-[connection signal="focus_exited" from="Node2D2/Party" to="Node2D2/Party" method="_on_Party_focus_exited"]
-[connection signal="pressed" from="Node2D2/Party" to="." method="_on_Party_pressed"]
+[connection signal="focus_entered" from="Duell/Duell" to="Duell/Duell" method="_on_GrapeOff_focus_entered"]
+[connection signal="focus_exited" from="Duell/Duell" to="Duell/Duell" method="_on_GrapeOff_focus_exited"]
+[connection signal="pressed" from="Duell/Duell" to="." method="_on_Duell_pressed"]
+[connection signal="focus_entered" from="Party/Party" to="Party/Party" method="_on_Party_focus_entered"]
+[connection signal="focus_exited" from="Party/Party" to="Party/Party" method="_on_Party_focus_exited"]
+[connection signal="pressed" from="Party/Party" to="." method="_on_Party_pressed"]

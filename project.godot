@@ -66,14 +66,17 @@ Stats="*res://assets/Stats/Stats.tscn"
 AudioManager="*res://assets/AudioManager/AudioManager.tscn"
 GameEvents="*res://assets/GameEvents/GameEvents.tscn"
 
+[debug]
+
+gdscript/warnings/unused_signal=false
+
 [display]
 
 window/size/width=320
 window/size/height=180
 window/size/resizable=false
+window/size/fullscreen=true
 window/size/always_on_top=true
-window/size/test_width=1280
-window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -228,3 +231,4 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

@@ -12,8 +12,8 @@ func _ready():
 
 
 func win_display():
-	for i in self.get_children():
-		i.visible
+#	for i in self.get_children():
+#		i.visible
 	$LongestCombo.text = str(self.get_parent().biggest_combo_counter)
 	$Attacks.text = str(self.get_parent().attack_counter)
 	$Mistakes.text = str(self.get_parent().mistakes_counter)
