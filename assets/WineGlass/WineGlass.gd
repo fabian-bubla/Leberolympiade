@@ -119,6 +119,7 @@ func _process(_delta):
 		
 	#LEFT CHECK
 	elif !input_blocked:
+		if is_multiple_pressed(): return
 #		print(input_not_diagonal())
 #		if input_not_diagonal():
 		#IS the Input pressed for the left side?
@@ -154,13 +155,13 @@ func _process(_delta):
 	
 	
 
-func input_not_diagonal():
+func is_multiple_pressed():
 	var direction = Vector2(Input.get_action_strength(Controls[0][1]) - Input.get_action_strength(Controls[0][0]),
 			Input.get_action_strength(Controls[0][3]) - Input.get_action_strength(Controls[0][2]))
 	if direction.length() > 1:
-		return false
-	else:
 		return true
+	else:
+		return false
 		
 func mirror_hand():
 	if Control_Scheme > (Stats.player_number/2 - 1):

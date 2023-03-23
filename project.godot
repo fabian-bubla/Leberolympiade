@@ -80,6 +80,10 @@ window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/AcceptControllerInput/plugin.cfg", "res://addons/InputFix/plugin.cfg" )
+
 [importer_defaults]
 
 texture={
