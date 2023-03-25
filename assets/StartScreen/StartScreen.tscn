@@ -87,7 +87,7 @@ frame = 2
 visible = false
 position = Vector2( 24.7603, 30.905 )
 frames = SubResource( 3 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Party" type="Node2D" parent="."]
@@ -113,6 +113,7 @@ frames = SubResource( 2 )
 visible = false
 position = Vector2( 45, 32 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [connection signal="focus_entered" from="Duell/Duell" to="Duell/Duell" method="_on_GrapeOff_focus_entered"]

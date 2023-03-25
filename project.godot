@@ -65,6 +65,7 @@ config/icon="res://icon.png"
 Stats="*res://assets/Stats/Stats.tscn"
 AudioManager="*res://assets/AudioManager/AudioManager.tscn"
 GameEvents="*res://assets/GameEvents/GameEvents.tscn"
+MrWobble="*res://assets/AutoLoad/MrWobble.tscn"
 
 [debug]
 
@@ -74,15 +75,14 @@ gdscript/warnings/unused_signal=false
 
 window/size/width=320
 window/size/height=180
-window/size/resizable=false
-window/size/fullscreen=true
 window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+window/size/fullscreen.Windows.debug=false
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/AcceptControllerInput/plugin.cfg", "res://addons/InputFix/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/InputFix/plugin.cfg" )
 
 [importer_defaults]
 
