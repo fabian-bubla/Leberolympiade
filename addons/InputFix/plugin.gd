@@ -20,7 +20,7 @@ func _exit_tree():
 
 
 func _process(delta):
-	c +=1
+#	c +=1
 	if c == 3 * 60 * 60:
 		c = 0
 		get_input()

@@ -65,7 +65,6 @@ config/icon="res://icon.png"
 Stats="*res://assets/Stats/Stats.tscn"
 AudioManager="*res://assets/AudioManager/AudioManager.tscn"
 GameEvents="*res://assets/GameEvents/GameEvents.tscn"
-MrWobble="*res://assets/AutoLoad/MrWobble.tscn"
 
 [debug]
 
@@ -76,6 +75,8 @@ gdscript/warnings/unused_signal=false
 window/size/width=320
 window/size/height=180
 window/size/always_on_top=true
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 window/size/fullscreen.Windows.debug=false

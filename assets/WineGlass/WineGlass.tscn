@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/old/Wine.gd" type="Script" id=1]
 [ext_resource path="res://assets/WineGlass/WineGlass01.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/Fonts/NumbersFont.tres" type="DynamicFont" id=15]
 [ext_resource path="res://assets/SFX/HitSFX.wav" type="AudioStream" id=16]
 [ext_resource path="res://assets/SFX/FailSFX.ogg" type="AudioStream" id=17]
+[ext_resource path="res://assets/Fonts/GameFont.tres" type="DynamicFont" id=18]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -47,7 +48,6 @@ visible = false
 position = Vector2( 0, -72 )
 frames = ExtResource( 6 )
 animation = "X"
-frame = 1
 playing = true
 
 [node name="Straw" type="Sprite" parent="."]
@@ -154,5 +154,13 @@ volume_db = 5.0
 [node name="FailSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 volume_db = 5.0
+
+[node name="Winner" type="Label" parent="."]
+margin_left = -29.0
+margin_top = 37.0
+margin_right = 29.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 18 )
+text = "Winner!"
 
 [connection signal="timeout" from="WinTimer" to="." method="_on_WinTimer_timeout"]

@@ -5,5 +5,5 @@
 [resource]
 shader = ExtResource( 1 )
 shader_param/speed = 3.169
-shader_param/strength = 1.057
+shader_param/strength = 0.0
 shader_param/frequency = 4.174

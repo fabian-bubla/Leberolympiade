@@ -7,3 +7,4 @@ signal game_won()
 signal enable_continue()
 signal character_selected()
 
+signal update_shader_strength()

@@ -2,6 +2,7 @@ extends Node2D
 
 var start_screen = "res://assets/StartScreen/StartScreen.tscn"
 var round_over = false
+var shader_strength = 0
 
 export var controller_id = 0
 
@@ -82,7 +83,7 @@ func _ready():
 	hide_all_arrows()
 	display_correct_arrow()
 	mirror_hand()
-
+	$Winner.visible = false
 
 		
 
@@ -91,8 +92,10 @@ func _process(_delta):
 	if round_over:
 		if Input.is_action_just_pressed(int_button_dict[4]):
 			AudioManager.play_or_stop_track(AudioManager.winSFX)
+			Stats.current_shader_strength = 0.0
 # warning-ignore:return_value_discarded
 			get_tree().change_scene(start_screen)
+			
 	
 	elif block_prompt:
 		if Input.is_action_just_pressed(int_button_dict.values()[-1]):
@@ -112,6 +115,7 @@ func _process(_delta):
 		
 	#LEFT CHECK
 	elif !input_blocked:
+		if is_multiple_pressed(): return
 #		print(input_not_diagonal())
 #		if input_not_diagonal():
 		#IS the Input pressed for the left side?
@@ -144,13 +148,13 @@ func _process(_delta):
 	
 	
 
-func input_not_diagonal():
+func is_multiple_pressed():
 	var direction = Vector2(Input.get_action_strength(Controls[0][1]) - Input.get_action_strength(Controls[0][0]),
 			Input.get_action_strength(Controls[0][3]) - Input.get_action_strength(Controls[0][2]))
 	if direction.length() > 1:
-		return false
-	else:
 		return true
+	else:
+		return false
 		
 func mirror_hand():
 	if Control_Scheme > (Stats.player_number/2 - 1):
@@ -162,6 +166,9 @@ func increment():
 		current_score = current_score + 1
 	else:
 		current_score = current_score - 1
+		if shader_strength <= 30:
+			shader_strength += 1.0
+		Stats.shader_strength(shader_strength)
 		
 	wine_fill_value = 9 + 62 /max_score * abs(current_score) #9 is min value and 62 is full value
 #	print(current_score, '    ', wine_fill_value)
@@ -188,6 +195,7 @@ func win():
 		member.win_display()
 		
 	$HandSprite.position.y -= 20
+	$Winner.visible = true
 
 	$WinTimer.start()
 	yield($WinTimer,"timeout")

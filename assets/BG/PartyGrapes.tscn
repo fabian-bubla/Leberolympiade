@@ -9,17 +9,17 @@
 [node name="PartyGrapes" type="Node2D"]
 
 [node name="BG_GrapesRight01" type="Sprite" parent="."]
-position = Vector2( 20, 0 )
+position = Vector2( 70, 30 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="BG_GrapesLeft01" type="Sprite" parent="."]
-position = Vector2( -20, 0 )
+position = Vector2( -70, 30 )
 texture = ExtResource( 1 )
 centered = false
 
 [node name="BG_PartyBottles" type="Sprite" parent="."]
-position = Vector2( 53, -4 )
+position = Vector2( 53, -37 )
 texture = ExtResource( 4 )
 centered = false
 

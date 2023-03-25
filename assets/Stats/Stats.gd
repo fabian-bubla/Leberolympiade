@@ -9,9 +9,11 @@ var win_list = []
 
 var selected_characters = [0,0,0,0]
 
-func _ready():
+var current_shader_strength = 0.0
+
+#func _ready():
 #	print(Sprite_idx_list)
-	pass
+#	pass
 	
 func create_win_dict ():
 	for member in get_tree().get_nodes_in_group("WineGlasses"):
@@ -22,3 +24,11 @@ func create_win_dict ():
 		temp_list.append(member.attack_counter)
 		temp_list.append(member.mistakes_counter)
 		win_list.append(temp_list)
+		
+func shader_strength(strength):
+	
+	if strength > current_shader_strength:
+		current_shader_strength = strength
+		print(current_shader_strength)
+		GameEvents.emit_signal("update_shader_strength")
+	
